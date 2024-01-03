@@ -1,0 +1,8 @@
+{
+  "name": "app-warehouse-query",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "99ce5369"
+}
