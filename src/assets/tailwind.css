@@ -23,7 +23,7 @@
         @apply bg-gradient-to-r from-afblue to-scblue text-white;
     }
     .es-bg-gray-gradient {
-        @apply bg-gradient-to-r from-gray-common to-gray-light text-white;
+        @apply bg-gradient-to-r from-gray-light to-gray-common text-white;
     }
     .es-bg-white {
         @apply bg-white text-black;
