@@ -14,6 +14,10 @@ import {
 /* TailwindCss directives */
 import '../../assets/tailwind.css'
 
+/* Resources */
+import Logo from '../../assets/images/jayor_logo.png'
+import Shape from '../../assets/images/shape_background.svg'
+
 setupIonicReact()
 
 export const Login: React.FC = () => {
@@ -34,11 +38,11 @@ export const Login: React.FC = () => {
         <div className='bg-white'>
             <div>
                 <IonImg
-                    src='src/assets/images/shape_background.svg'
+                    src={Shape}
                     alt='Laboratorios Jayor México'>
                 </IonImg>
                 <IonImg className='absolute top-0 mt-12'
-                    src='src/assets/images/jayor_logo.png'
+                    src={Logo}
                     alt='Laboratorios Jayor México'>
                 </IonImg>
             </div>
@@ -65,9 +69,9 @@ export const Login: React.FC = () => {
                 </div>
 
                 <div className='my-4 w-2/3 '>
-                    <button className='es-button' 
-                    onClick={login}
-                    disabled={loginIsDisabled}>
+                    <button className='es-button'
+                        onClick={login}
+                        disabled={loginIsDisabled}>
                         Iniciar
                     </button>
                 </div>
