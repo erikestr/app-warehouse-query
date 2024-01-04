@@ -18,6 +18,9 @@ import '../../assets/tailwind.css'
 import Logo from '../../assets/images/jayor_logo.png'
 import Shape from '../../assets/images/shape_background.svg'
 
+/* Api Connection Service */
+import { login } from '../../services/api'
+
 setupIonicReact()
 
 export const Login: React.FC = () => {
@@ -29,10 +32,21 @@ export const Login: React.FC = () => {
         setShowPassword(!showPassword)
     }
 
-    const login = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
         setLoginIsDisabled(true)
-        console.log('login')
-    }
+        try {
+            const result = await login(username, password, false);
+            // Handle successful login result
+            console.log('Login successful:', result);
+        } catch (error: any) {
+            // Handle login error
+            console.error('Login error:', error.message);
+        }
+        setLoginIsDisabled(false)
+    };
 
     return (
         <div className='bg-white'>
@@ -51,14 +65,17 @@ export const Login: React.FC = () => {
 
                 <div className='my-4'>
                     <span className='es-input-span'>
-                        <input className='es-input' type='text' placeholder='Ingrese su usuario' />
+                        <input className='es-input' type='text' placeholder='Ingrese su usuario' 
+                        value={username} onChange={(e) => setUsername(e.target.value)} />
                         <span></span>
                     </span>
                 </div>
 
                 <div className='my-4'>
                     <span className='es-input-span'>
-                        <input className='es-input' type={showPassword ? 'text' : 'password'} placeholder='Ingrese su contraseña' />
+                        <input className='es-input' type={showPassword ? 'text' : 'password'}
+                            placeholder='Ingrese su contraseña' 
+                            value={password} onChange={(e) => setPassword(e.target.value)} />
                         <span></span>
                     </span>
                 </div>
@@ -70,7 +87,7 @@ export const Login: React.FC = () => {
 
                 <div className='my-4 w-2/3 '>
                     <button className='es-button'
-                        onClick={login}
+                        onClick={handleLogin}
                         disabled={loginIsDisabled}>
                         Iniciar
                     </button>
