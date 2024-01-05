@@ -7,10 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'afblue':'#013789',
-        'scblue':'#1B1464',
-        'gray-common':'#A1A1A1',
-        'gray-light':'#E3E3E3'
+        'afblue': '#013789',
+        'scblue': '#1B1464',
+        'gray-common': '#A1A1A1',
+        'gray-light': '#E3E3E3'
+      },
+      backgroundImage :{
+        'back': '#FFFFFF'
       }
     },
   },

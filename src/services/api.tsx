@@ -5,7 +5,7 @@ const headers = {
   // You can add more headers as needed
 };
 
-export const login = async (username: string, password: string, remeber: boolean) => {
+export const authLogin = async (username: string, password: string, remeber: boolean) => {
   try {
     const response = await fetch(`${BASE_URL}/api/auth/login`, {
       method: 'POST',

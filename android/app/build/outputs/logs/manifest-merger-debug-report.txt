@@ -101,6 +101,8 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\MXJAYORDS204\.grad
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:5:9-35
 	android:theme
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:10:9-40
+	android:usesCleartextTraffic
+		ADDED from [:capacitor-cordova-android-plugins] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:18-53
 activity#io.ionic.starter.MainActivity
 ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:12:9-25:20
 	android:label
