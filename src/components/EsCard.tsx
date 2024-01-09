@@ -1,21 +1,36 @@
 import React from 'react';
 import { EsCardInterface } from '../types/EsCardInterface';
 
-export const EsCard = ({ ITEMNMBR, BATCHNMBR, LOCATION, GPLOCATION, QUANTITY }: EsCardInterface) => {
+export const EsCard = ({ ITEMNMBR, ITEMDESC, LOTNUMBR, BIN, EAN13Adaia,
+    MFGDATE, EXPNDATE, QTYONHND, ATYALLOC, QTYDISPO }: EsCardInterface) => {
     return (
         <div className='es-card flex flex-row space-y-0 p-8'>
             <div className='flex flex-col w-full'>
                 <p className='mt-2 text-2xl font-thin'>Artículo</p>
                 <p className='mt-0 text-xl text font-bold'>{ITEMNMBR}</p>
+                <p className='mt-2 text-2xl font-thin'>Descripción</p>
+                <p className='mt-0 text-xl text font-bold'>{ITEMDESC.slice(0,20)+'...'}</p>
                 <p className='mt-2 text-2xl font-thin'>Lote</p>
-                <p className='mt-0 text-xl text font-bold'>{BATCHNMBR}</p>
+                <p className='mt-0 text-xl text font-bold'>{LOTNUMBR}</p>
+                <p className='mt-2 text-2xl font-thin'>Fab.</p>
+                <p className='mt-0 text-xl text font-bold'>{MFGDATE.toString().slice(0,10)}</p>
+                <p className='mt-2 text-2xl font-thin'>Existencia</p>
+                <p className='mt-0 text-xl text font-bold'>{QTYONHND}</p>
             </div>
 
             <div className='flex flex-col w-full'>
+                <p className='mt-2 text-2xl font-thin'>Ubicación Gp</p>
+                <p className='mt-0 text-xl text font-bold'>{BIN}</p>
                 <p className='mt-2 text-2xl font-thin'>Ubicación</p>
-                <p className='mt-0 text-xl text font-bold'>{LOCATION}</p>
-                <p className='mt-2 text-2xl font-thin'>Cantidad</p>
-                <p className='mt-0 text-xl text font-bold'>{QUANTITY}</p>
+                <p className='mt-0 text-xl text font-bold'>{EAN13Adaia}</p>
+                <p className='mt-2 text-2xl font-thin'>Ubicación</p>
+                <p className='mt-0 text-xl text font-bold'>{EAN13Adaia}</p>
+                <p className='mt-2 text-2xl font-thin'>Cad.</p>
+                <p className='mt-0 text-xl text font-bold'>{EXPNDATE.toString().slice(0,10)}</p>
+                <p className='mt-2 text-2xl font-thin'>Asignada</p>
+                <p className='mt-0 text-xl text font-bold'>{ATYALLOC}</p>
+            <p className='mt-2 text-2xl font-thin'>Disponible</p>
+            <p className='mt-0 text-xl text font-bold'>{QTYDISPO}</p>
             </div>
 
 
@@ -25,8 +40,8 @@ export const EsCard = ({ ITEMNMBR, BATCHNMBR, LOCATION, GPLOCATION, QUANTITY }: 
         //         className='group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10'>
         //         <span className='absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]'></span>
         //         <div className='relative z-10 mx-auto max-w-md'>
-                    
-                    
+
+
         //             <div
         //                 className='space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90'>
         //                 <p>Text</p>

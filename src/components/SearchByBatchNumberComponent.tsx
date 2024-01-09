@@ -1,34 +1,32 @@
 import { IonIcon } from '@ionic/react';
 import { searchOutline } from 'ionicons/icons';
 import { useState } from 'react';
-import { EsCardInterface } from '../types/EsCardInterface';
+import { listExistences } from '../services/api';
+import { v1WharehouseInterface } from '../types/v1WharehouseInterface';
 
-export const SearchByBatchNumberComponent = ({onSearch}: any) => {
-    const [searchResults, setSearchResults]: any = useState([]);
+export const SearchByBatchNumberComponent = ({onSearch, onClickSearch, onError}: any) => {
+    const [searchResults, setSearchResults]: any[] = useState([]);
 
     const [isSearching, setIsSearching] = useState(false)
     const [code, setCode] = useState('')
 
-    const mockResults: EsCardInterface[] = [
-        { ITEMNMBR: 'Art7', BATCHNMBR: 'Lote7', LOCATION: 'Ubic7', GPLOCATION: 'UbicGP7', QUANTITY: 999 },
-        { ITEMNMBR: 'Art8', BATCHNMBR: 'Lote8', LOCATION: 'Ubic8', GPLOCATION: 'UbicGP8', QUANTITY: 666},
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-        { ITEMNMBR: 'Art9', BATCHNMBR: 'Lote9', LOCATION: 'Ubic9', GPLOCATION: 'UbicGP9', QUANTITY: 333 },
-    ];
+    const userid = sessionStorage.getItem('sys_user')?? 'sa';
 
-    const handleSearch = () => {
+    const handleSearch = async () => {
+        onClickSearch(true)
         setIsSearching(true)
-        setSearchResults(mockResults);
+        try {
+            const result: v1WharehouseInterface[] = await listExistences(userid, undefined, code)
+
+            if(result != null) {
+                setSearchResults(result);
+                onSearch(result);
+            }
+        } catch (error: any) {
+            onError(error.message)
+            console.error('Error:', error.message)
+        }
         setIsSearching(false)
-        onSearch(mockResults);
     }
 
     return (
@@ -41,10 +39,10 @@ export const SearchByBatchNumberComponent = ({onSearch}: any) => {
                         spellCheck='false' />
                     <span></span>
                 </span>
-                <button className='w-12 h-12 p-4 m-0 es-bg-blue-gradient rounded-full flex'
+                <button className='es-button w-12 h-12 p-3 m-0 rounded-full flex'
                     onClick={handleSearch}
                     disabled={isSearching}>
-                    <IonIcon icon={searchOutline} className=' scale-150'></IonIcon>
+                    <IonIcon icon={searchOutline} className=' scale-110'></IonIcon>
                 </button>
             </div>
         </div>

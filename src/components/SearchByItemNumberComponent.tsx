@@ -1,24 +1,32 @@
 import { IonIcon } from '@ionic/react';
 import { searchOutline } from 'ionicons/icons';
 import { useState } from 'react';
-import { EsCardInterface } from '../types/EsCardInterface';
+import { v1WharehouseInterface } from '../types/v1WharehouseInterface';
+import { listExistences } from '../services/api';
 
-export const SearchByItemNumberComponent = ({ onSearch }: any) => {
-    const [searchResults, setSearchResults]: any = useState([]);
+export const SearchByItemNumberComponent = ({ onSearch, onClickSearch, onError }: any) => {
+    const [searchResults, setSearchResults]: any = useState([])
 
     const [isSearching, setIsSearching] = useState(false)
     const [code, setCode] = useState('')
 
-    const mockResults: EsCardInterface[] = [
-        { ITEMNMBR: 'Art1', BATCHNMBR: 'Lote1', LOCATION: 'Ubic1', GPLOCATION: 'UbicGP1', QUANTITY: 10 },
-        { ITEMNMBR: 'Art2', BATCHNMBR: 'Lote2', LOCATION: 'Ubic2', GPLOCATION: 'UbicGP2', QUANTITY: 20 },
-    ];
+    const userid = sessionStorage.getItem('sys_user') ?? 'sa';
 
-    const handleSearch = () => {
+    const handleSearch = async () => {
+        onClickSearch(true)
         setIsSearching(true)
-        setSearchResults(mockResults);
+        try {
+            const result: v1WharehouseInterface[] = await listExistences(userid, code, undefined)
+
+            if (result != null) {
+                setSearchResults(result)
+                onSearch(result)
+            }
+        } catch (error: any) {
+            onError(error.message)
+            console.error('Error:', error.message)
+        }
         setIsSearching(false)
-        onSearch(mockResults);
     }
 
     return (
@@ -38,5 +46,5 @@ export const SearchByItemNumberComponent = ({ onSearch }: any) => {
                 </button>
             </div>
         </div>
-    );
+    )
 };

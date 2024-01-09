@@ -28,6 +28,14 @@
         @apply bg-gradient-to-r from-afblue to-scblue text-white;
     }
 
+    .es-bg-red-gradient {
+        @apply bg-gradient-to-r from-dcpink to-fopink text-white;
+    }
+
+    .es-bg-green-gradient {
+        @apply bg-gradient-to-r from-eugreen to-magreen text-white;
+    }
+
     .es-bg-gray-gradient {
         @apply bg-gradient-to-r from-gray-light to-gray-light text-white;
     }
@@ -56,8 +64,24 @@
         @apply w-full text-center p-2 px-6 text-2xl text-white es-bg-blue-gradient es-rounded hover:es-hover es-disabled es-shadow;
     }
 
+    .es-button-red {
+        @apply w-full text-center p-2 px-6 text-2xl text-white es-bg-red-gradient es-rounded hover:es-hover-red es-disabled es-shadow;
+    }
+
+    .es-button-green {
+        @apply w-full text-center p-2 px-6 text-2xl text-white es-bg-green-gradient es-rounded hover:es-hover-green es-disabled es-shadow;
+    }
+
     .es-hover {
         @apply ring-2 ring-afblue ring-opacity-55 transition-all es-shadow-highlight;
+    }
+
+    .es-hover-red {
+        @apply ring-2 ring-dcpink ring-opacity-55 transition-all es-shadow-highlight;
+    }
+
+    .es-hover-green {
+        @apply ring-2 ring-eugreen ring-opacity-55 transition-all es-shadow-highlight;
     }
 
     .es-no-hover {

@@ -13,13 +13,13 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = () => {
-    // Implement your login logic here
     setIsLoggedIn(true);
   };
 
   const logout = () => {
-    // Implement your logout logic here
     setIsLoggedIn(false);
+    sessionStorage.removeItem('_token');
+    sessionStorage.removeItem('_sys_user');
   };
 
   return (
