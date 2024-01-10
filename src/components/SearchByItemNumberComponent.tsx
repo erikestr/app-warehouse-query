@@ -29,13 +29,21 @@ export const SearchByItemNumberComponent = ({ onSearch, onClickSearch, onError }
         setIsSearching(false)
     }
 
+    const handleKeyUp = (event: any) => {
+        if (event.key === "Enter")
+            handleSearch()
+    }
+
     return (
         <div className="es-card flex-col space-x-2">
             <div className='flex flex-row space-x-2'>
                 <span className='es-input-span w-full'>
                     <input className='es-input w-full' type='text'
                         placeholder='Artículo'
-                        value={code} onChange={(e) => setCode(e.target.value)}
+                        value={code}
+                        onChange={(e) => setCode(e.target.value)}
+                        onKeyUp={handleKeyUp}
+                        autoComplete='off'
                         spellCheck='false' />
                     <span></span>
                 </span>

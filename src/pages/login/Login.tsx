@@ -4,9 +4,17 @@ import { useHistory } from 'react-router'
 
 /** Ionic Imports */
 import {
+    createAnimation,
     IonChip,
+    IonContent,
+    IonHeader,
     IonImg,
-    setupIonicReact
+    IonPage,
+    setupIonicReact,
+    useIonViewDidEnter,
+    useIonViewDidLeave,
+    useIonViewWillEnter,
+    useIonViewWillLeave
 } from '@ionic/react'
 
 /* TailwindCss directives */
@@ -24,6 +32,7 @@ import { useAuth } from '../../services/AuthContext'
 setupIonicReact()
 
 export const Login: React.FC = () => {
+    const [didLeave, setDidLeave] = useState(false);
 
     const [showPassword, setShowPassword] = useState(false)
     const [loginIsDisabled, setLoginIsDisabled] = useState(false)
@@ -53,9 +62,76 @@ export const Login: React.FC = () => {
         setLoginIsDisabled(false)
     };
 
-    return (
-        <div className='bg-white'>
 
+    // const slideInAnimation =
+    //     createAnimation('slide-in-left')
+    //         .duration(500)
+    //         .fromTo('opacity', '0', '1')
+    //         .iterations(1)
+
+    // useIonViewWillEnter(() => {
+    //     console.log('enter');
+    //     // Ensure the element exists before adding it to the animation
+    //     const element = document.querySelector('#login-page')
+    //     if (element) {
+    //         console.log(element)
+    //         slideInAnimation.addElement(element)
+    //         slideInAnimation.play()
+    //     } else {
+    //         // Handle the case where the element doesn't exist (optional)
+    //         console.warn('Element with ID "main" not found.')
+    //     }
+    // })
+
+    // const slideInAnimation =
+    //     createAnimation('slide-in-right')
+    //         .delay(100)
+    //         .duration(400)
+    //         .fromTo('opacity', '0', '1')
+    //         .iterations(1)
+
+    // useIonViewWillEnter(() => {
+    //     console.log('enter login');
+    //     // Ensure the element exists before adding it to the animation
+    //     const element = document.querySelector('#login-page')
+    //     if (element) {
+    //         console.log(element)
+    //         slideInAnimation.addElement(element)
+    //         slideInAnimation.play()
+    //     } else {
+    //         // Handle the case where the element doesn't exist (optional)
+    //         console.warn('Element with ID "main" not found.')
+    //     }
+    // })
+
+    // const slideOutAnimation =
+    //     createAnimation('slide-out-left')
+    //         .duration(500)
+    //         .fromTo('opacity', '1', '0')
+    //         .iterations(1)
+
+    // useIonViewWillLeave(() => {
+    //     if (!didLeave) {
+    //         // Perform actions only if the flag is not set
+    //         setDidLeave(true);
+    //         console.log('leave login');
+    //         const element = document.querySelector('#login-page')
+    //         if (element) {
+    //             console.log(element)
+    //             slideOutAnimation.addElement(element)
+    //             slideOutAnimation.play()
+    //         } else {
+    //             // Handle the case where the element doesn't exist (optional)
+    //             console.warn('Element with ID "main" not found.')
+    //         }
+    //     }
+
+    //     // Ensure the element exists before adding it to the animation
+
+    // })
+
+    return (
+        <div>
             <div className='z-50'>
                 <IonImg
                     src={Shape}

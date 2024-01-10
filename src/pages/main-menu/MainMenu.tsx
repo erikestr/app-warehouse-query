@@ -4,10 +4,17 @@ import { useHistory } from 'react-router'
 
 /** Ionic Imports */
 import {
+    IonContent,
     IonIcon,
     IonImg,
-    setupIonicReact
+    IonPage,
+    createAnimation,
+    setupIonicReact,
+    useIonViewDidEnter,
+    useIonViewWillEnter,
+    useIonViewWillLeave
 } from '@ionic/react'
+
 import { arrowDown, arrowUp, exit } from 'ionicons/icons'
 import { EsCardSkeleton } from '../../components/EsCardSkeleton'
 import { useAuth } from '../../services/AuthContext'
@@ -15,9 +22,6 @@ import { EsCardNotResults } from '../../components/EsCardNotResults'
 import { EsCard } from '../../components/EsCard'
 import { SearchByItemNumberComponent } from '../../components/SearchByItemNumberComponent'
 import { SearchByBatchNumberComponent } from '../../components/SearchByBatchNumberComponent'
-
-/* TailwindCss directives */
-import '../../assets/tailwind.css'
 
 /* Resources */
 import Shape from '../../assets/images/shape_background.svg'
@@ -29,6 +33,8 @@ import './MainMenu.css'
 setupIonicReact()
 
 const MainMenu: React.FC = () => {
+    const [didLeave, setDidLeave] = useState(false);
+
     const [currentTime, setCurrentTime] = useState(getFormattedTime())
     useEffect(() => {
         // Actualizar el tiempo cada segundo
@@ -50,7 +56,7 @@ const MainMenu: React.FC = () => {
             minute: '2-digit',
             second: '2-digit',
             hour12: true,
-        };
+        }
 
         const now = new Date()
         return now.toLocaleString('es-MX', options)
@@ -79,12 +85,12 @@ const MainMenu: React.FC = () => {
     const searchByItemNumber = () => {
         // setSearchByItemNumberIsDisabled(false)
         setShowEsCardSkeleton(false)
-        setIsModalHiddenDelayed(false)
+        setShowModalDelayed(true)
         setTimeout(() => {
-            if (showSearchByBatchNumberComponent)
-                setSearchResults([])
+            setSearchResults([])
             setIsCentered(false)
             setShowModal(true)
+            setModalResult(false)
             setShowSearchByItemNumberComponent(true)
             setShowSearchByBatchNumberComponent(false)
         }, 100)
@@ -92,13 +98,11 @@ const MainMenu: React.FC = () => {
     const searchByBatchNumber = () => {
         // setSearchByBatchNumberIsDisabled(false)
         setShowEsCardSkeleton(false)
-        setIsModalHiddenDelayed(false)
+        setShowModalDelayed(true)
         setTimeout(() => {
-            if (showSearchByItemNumberComponent)
-                setSearchResults([])
+            setSearchResults([])
             setIsCentered(false)
             setShowModal(true)
-            setModalResult(false)
             setModalResult(false)
             setShowSearchByBatchNumberComponent(true)
             setShowSearchByItemNumberComponent(false)
@@ -121,9 +125,9 @@ const MainMenu: React.FC = () => {
     const clockContainerRef: any = useRef<HTMLElement>(null)
     const searchContainerRef: any = useRef<HTMLElement>(null)
     const [showModal, setShowModal] = useState(false)
+    const [showModalDelayed, setShowModalDelayed] = useState(false)
     const [showToTopButton, setShowToTopButton] = useState(false)
     const [showModalResult, setModalResult] = useState(false)
-    const [isModalHiddenDelayed, setIsModalHiddenDelayed] = useState(false)
 
     const handleSearch = (results: any) => {
         setShowEsCardSkeleton(false)
@@ -136,7 +140,7 @@ const MainMenu: React.FC = () => {
         setShowModal(false)
         setModalResult(true)
 
-    };
+    }
     const handleClickSearch = (status: boolean) => {
         setSearchByItemNumberIsDisabled(true)
         setSearchByBatchNumberIsDisabled(true)
@@ -153,6 +157,7 @@ const MainMenu: React.FC = () => {
         setShowEsCardSkeleton(false)
         setShowEsCardNoResults(true)
         setSearchResults([])
+        setShowModal(true)
         setModalResult(false)
         setSearchByItemNumberIsDisabled(false)
         setSearchByBatchNumberIsDisabled(false)
@@ -167,18 +172,18 @@ const MainMenu: React.FC = () => {
         if (showModalResult)
             setModalResult(false)
         setTimeout(() => {
-            setIsModalHiddenDelayed(true)
+            setShowModalDelayed(true)
             setSearchResults([])
             setShowListEsCard(false)
         }, 500)
-    };
+    }
 
     const scrollToTop = () => {
         clockContainerRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
 
     const logoutApp = () => {
-        logout()
+        // logout()
         history.push('/login')
     }
 
@@ -194,16 +199,61 @@ const MainMenu: React.FC = () => {
         }
     }, [])
 
+    // const slideInAnimation =
+    //     createAnimation('slide-in-left')
+    //         .duration(500)
+    //         .fromTo('opacity', '0', '1')
+    //         .iterations(1)
+
+    // useIonViewDidEnter(() => {
+    //     setTimeout(() => {
+    //         console.log('enter main');
+    //         const element = document.querySelector('#main-page')
+    //         if (element) {
+    //             console.log(element)
+    //             // slideInAnimation.addElement(element)
+    //             // slideInAnimation.play()
+    //         } else {
+    //             // Handle the case where the element doesn't exist (optional)
+    //             console.warn('Element with ID "main" not found.')
+    //         }
+    //     }, 500);
+
+    // })
+
+    // const slideOutAnimation =
+    //     createAnimation('slide-out-left')
+    //         .duration(500)
+    //         .fromTo('opacity', '1', '0')
+    //         .iterations(1)
+
+    // useIonViewWillLeave(() => {
+    //     if (!didLeave) {
+    //         setDidLeave(true);
+    //         console.log('leave main');
+    //         const element = document.querySelector('#login-page')
+    //         if (element) {
+    //             console.log(element)
+    //             // slideOutAnimation.addElement(element)
+    //             // slideOutAnimation.play()
+    //         } else {
+    //             // Handle the case where the element doesn't exist (optional)
+    //             console.warn('Element with ID "main" not found.')
+    //         }
+    //     }
+    // })
+
     return (
-        <div>
-            <div className='z-0 fixed bottom-0 right-0' >
+        <IonContent>
+            <div slot='fixed' className='fixed bottom-0 right-0 p-4'>
                 {showModalResult &&
-                        <button className='es-button w-8 h-8 p-1 m-0 rounded-full 
-                        flex'
-                            onClick={scrollToTop}>
-                            <IonIcon icon={arrowUp} className=' scale-75'></IonIcon>
-                        </button>
-                    }
+                    <button className={`es-button w-8 h-8 p-1 m-0 rounded-full flex
+                    ${showModalResult ? `opacity-100` : `opacity-0`}
+                    transition delay-500 duration-500 ease-in-out`}
+                        onClick={scrollToTop}>
+                        <IonIcon icon={arrowUp} className=' scale-75'></IonIcon>
+                    </button>
+                }
             </div>
             <div className='absolute z-0' ref={clockContainerRef}>
                 <IonImg
@@ -223,10 +273,9 @@ const MainMenu: React.FC = () => {
             <div className='w-full h-svh flex flex-col p-8 space-y-8 z-30'>
                 <div className='w-full z-20'>
                     <input className='es-input hover:es-no-hover w-full 
-                    es-shadow'
-                        type='text' placeholder='Ingrese su usuario'
-                        value={currentTime}
-                        readOnly />
+                        es-shadow'
+                        type='tebxt' placeholder='Ingrese su usuario'
+                        value={currentTime} readOnly />
                 </div>
 
                 <div className={`es-card z-10
@@ -258,17 +307,20 @@ const MainMenu: React.FC = () => {
             <div className={`z-10 bg-white es-shadow-inverted 
                 w-full absolute text-black rounded-t-[2.5rem]
                 ${showModalResult ? `-translate-y-[100svh] mt-76 opacity-100` : `opacity-0`}
-                ${showModal ? `-translate-y-[calc(100svh/2)] h-[calc(100svh/2)] flex opacity-100` : `opacity-0`}
-                transition-all duration-500 ease-in-out`}>
+                ${showModal ? `-translate-y-[calc(100svh/2)] h-[calc(100svh/2)] opacity-100` : `opacity-0`}
+                transition-all duration-500 ease-in-out`}
+                style={{ display: showModalDelayed ? 'flex' : 'none' }}>
 
-                <div className={`flex flex-col p-8 space-y-8
-                ${showEsCardSkeleton ? `h-max` : `h-auto`}`}>
-                    <button className='es-button es-bg-gray-gradient w-8 
-                    h-8 p-1 m-0 rounded-full flex
-                    absolute right-[10%]'
-                        onClick={closeModal}>
-                        <IonIcon icon={arrowDown} className=' scale-75'></IonIcon>
-                    </button>
+                <div className={`flex flex-col p-8 space-y-8 w-full
+                    ${showEsCardSkeleton ? `h-max` : `h-auto`}`}>
+
+                    <div className='absolute top-0 right-0 p-[1rem]'>
+                        <button className='es-button es-bg-gray-gradient w-8 
+                        h-8 p-1 m-0 rounded-full flex'
+                            onClick={closeModal}>
+                            <IonIcon icon={arrowDown} className=' scale-75'></IonIcon>
+                        </button>
+                    </div>
 
                     <h1 className='text-4xl font-thin' ref={searchContainerRef}>Busqueda</h1>
 
@@ -294,7 +346,7 @@ const MainMenu: React.FC = () => {
                 </div>
 
             </div>
-        </div>
+        </IonContent>
     )
 }
 

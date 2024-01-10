@@ -1,4 +1,4 @@
-#Tue Jan 09 16:48:31 CST 2024
+#Wed Jan 10 15:54:58 CST 2024
 base.0=C\:\\Users\\MXJAYORDS204\\Desktop\\PROJECTS\\app-warehouse-query\\frontend\\app-warehouse-query\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\MXJAYORDS204\\Desktop\\PROJECTS\\app-warehouse-query\\frontend\\app-warehouse-query\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\14\\classes.dex
 base.2=C\:\\Users\\MXJAYORDS204\\Desktop\\PROJECTS\\app-warehouse-query\\frontend\\app-warehouse-query\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\2\\classes.dex
