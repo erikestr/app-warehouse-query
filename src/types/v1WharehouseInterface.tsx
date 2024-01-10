@@ -8,8 +8,8 @@ export interface v1WharehouseInterface {
     ITEMNMBR: string;
     LOCNCODE: string;
     LOTNUMBR: string;
-    LPN: string;     
+    LPN: string;
     MFGDATE: Date;
     QTYDISPO: number;
     QTYONHND: number;
-  };
+};

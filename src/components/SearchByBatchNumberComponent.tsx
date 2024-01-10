@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { listExistences } from '../services/api';
 import { v1WharehouseInterface } from '../types/v1WharehouseInterface';
 
-export const SearchByBatchNumberComponent = ({onSearch, onClickSearch, onError}: any) => {
+export const SearchByBatchNumberComponent = ({ onSearch, onClickSearch, onError }: any) => {
     const [searchResults, setSearchResults]: any[] = useState([]);
 
     const [isSearching, setIsSearching] = useState(false)
     const [code, setCode] = useState('')
 
-    const userid = sessionStorage.getItem('sys_user')?? 'sa';
+    const userid = sessionStorage.getItem('sys_user') ?? 'sa';
 
     const handleSearch = async () => {
         onClickSearch(true)
@@ -18,7 +18,7 @@ export const SearchByBatchNumberComponent = ({onSearch, onClickSearch, onError}:
         try {
             const result: v1WharehouseInterface[] = await listExistences(userid, undefined, code)
 
-            if(result != null) {
+            if (result != null) {
                 setSearchResults(result);
                 onSearch(result);
             }

@@ -6,9 +6,9 @@ let headers = {
 
 function getHeaders(): any {
   return {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${sessionStorage.getItem('_token')}`,
-    };
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${sessionStorage.getItem('_token')}`,
+  };
 }
 
 export const authLogin = async (username: string, password: string, remeber: boolean) => {
@@ -16,7 +16,7 @@ export const authLogin = async (username: string, password: string, remeber: boo
     const response = await fetch(`${BASE_URL}/api/auth/login`, {
       method: 'POST',
       headers,
-      body: JSON.stringify({ username, password, remeber}),
+      body: JSON.stringify({ username, password, remeber }),
     });
 
     if (response.ok) {
@@ -32,9 +32,8 @@ export const authLogin = async (username: string, password: string, remeber: boo
   }
 };
 
-
 export const listExistences = async (userid: string, itemnmbr?: string, batchnmbr?: string) => {
-  const url = `${BASE_URL}/api/v1/wharehouse/query?userid=${userid}&itemnmbr=${itemnmbr??''}&batchnmbr=${batchnmbr??''}`;
+  const url = `${BASE_URL}/api/v1/wharehouse/query?userid=${userid}&itemnmbr=${itemnmbr ?? ''}&batchnmbr=${batchnmbr ?? ''}`;
 
   try {
     const response: Response = await fetch(url, {

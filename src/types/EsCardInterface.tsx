@@ -1,7 +1,7 @@
 export interface EsCardInterface {
     ITEMNMBR: string
     ITEMDESC: string
-    LOTNUMBR: string 
+    LOTNUMBR: string
     BIN: string
     EAN13Adaia: string
     MFGDATE: Date

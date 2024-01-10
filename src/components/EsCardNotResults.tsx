@@ -9,7 +9,6 @@ export const EsCardNotResults = () => {
 
             <p className='text-thin text-4xl text-gray-300'>Sin resultados...</p>
 
-
         </div>
     );
 };
