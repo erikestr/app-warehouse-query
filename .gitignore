@@ -11,6 +11,10 @@
 # production
 /dist
 
+# android
+/android/.gradle/*
+/android/app/build/*
+
 # misc
 .DS_Store
 .env.local

@@ -42,8 +42,8 @@ export const Login: React.FC = () => {
     }
 
     const { login } = useAuth();
-    const [username, setUsername] = useState('erik.estrada')
-    const [password, setPassword] = useState('J@y0r123')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     const history = useHistory()
 
     const handleLogin = async () => {
