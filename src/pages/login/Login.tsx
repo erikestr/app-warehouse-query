@@ -42,14 +42,14 @@ export const Login: React.FC = () => {
     }
 
     const { login } = useAuth();
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('erik.estrada')
+    const [password, setPassword] = useState('J@y0r123')
     const history = useHistory()
 
     const handleLogin = async () => {
         setLoginIsDisabled(true)
         try {
-            const result = await authLogin(username, password, false)
+            const result = await authLogin(username.trim(), password.trim(), false)
 
             if (result != null && result['access_token']) {
                 login()

@@ -29,6 +29,9 @@ import Shape from '../../assets/images/shape_background.svg'
 
 /* Custom Css */
 import './MainMenu.css'
+import EsCardHeader from '../../components/EsCardHeader'
+import { v1WharehouseInterface } from '../../types/v1WharehouseInterface'
+import { Separator } from '../../components/Separator'
 
 setupIonicReact()
 
@@ -88,6 +91,7 @@ const MainMenu: React.FC = () => {
         setShowModalDelayed(true)
         setTimeout(() => {
             setSearchResults([])
+            setShowListEsCard(false)
             setIsCentered(false)
             setShowModal(true)
             setModalResult(false)
@@ -101,6 +105,7 @@ const MainMenu: React.FC = () => {
         setShowModalDelayed(true)
         setTimeout(() => {
             setSearchResults([])
+            setShowListEsCard(false)
             setIsCentered(false)
             setShowModal(true)
             setModalResult(false)
@@ -115,7 +120,7 @@ const MainMenu: React.FC = () => {
         = useState(false)
     const [showListEsCard, setShowListEsCard]
         = useState(false)
-    const [searchResults, setSearchResults]
+    const [searchResults, setSearchResults]: any
         = useState([])
     const [showEsCardSkeleton, setShowEsCardSkeleton]
         = useState(false)
@@ -149,7 +154,9 @@ const MainMenu: React.FC = () => {
         setShowEsCardNoResults(false)
         setShowEsCardSkeleton(true)
         setModalResult(false)
-        setSearchResults([])
+        if(searchResults.length <= 0)
+            setShowListEsCard(false)
+        // setSearchResults([])
     }
     const handleSearchError = (error: any) => {
         console.log('handleSearchError', error)
@@ -157,6 +164,7 @@ const MainMenu: React.FC = () => {
         setShowEsCardSkeleton(false)
         setShowEsCardNoResults(true)
         setSearchResults([])
+        setShowListEsCard(false)
         setShowModal(true)
         setModalResult(false)
         setSearchByItemNumberIsDisabled(false)
@@ -339,6 +347,17 @@ const MainMenu: React.FC = () => {
                     {showEsCardSkeleton && <EsCardSkeleton />}
 
                     {showEsCardNoResults && <EsCardNotResults />}
+
+                    {showListEsCard &&
+                        <EsCardHeader
+                            ITEMNMBR={searchResults[0].ITEMNMBR}
+                            ITEMDESC={searchResults[0].ITEMDESC}
+                            DEF01STR={searchResults[0].DEF01STR} />
+                    }
+
+                    {showListEsCard &&
+                        <Separator />
+                    }
 
                     {showListEsCard &&
                         <ListEsCard datos={searchResults} />}
