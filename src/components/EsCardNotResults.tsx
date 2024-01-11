@@ -1,5 +1,4 @@
-import { IonSkeletonText } from '@ionic/react';
-
+/** Custom Css */
 import './EsCardSkeleton.css'
 
 export const EsCardNotResults = () => {

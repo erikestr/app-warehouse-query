@@ -1,4 +1,7 @@
+/** React Imports */
 import React from 'react'
+
+/** Imports */
 import { EsCardHeaderProps } from '../types/EsCardHeaderProps';
 
 const EsCardHeader: React.FC<EsCardHeaderProps> = ({ ITEMNMBR, ITEMDESC, DEF01STR }) => {

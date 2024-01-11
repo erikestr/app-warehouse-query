@@ -1,11 +1,8 @@
-// AuthContext.js
+/** React Imports */
 import { PropsWithChildren, createContext, useContext, useState } from 'react';
 
-interface AuthContextType {
-  isLoggedIn: boolean;
-  login: () => void;
-  logout: () => void;
-}
+/** Imports */
+import { AuthContextType } from '../types/AuthContextType';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

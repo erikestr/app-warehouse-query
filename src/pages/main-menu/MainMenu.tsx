@@ -7,47 +7,37 @@ import {
     IonContent,
     IonIcon,
     IonImg,
-    IonPage,
-    createAnimation,
     setupIonicReact,
-    useIonViewDidEnter,
-    useIonViewWillEnter,
-    useIonViewWillLeave
 } from '@ionic/react'
 
+/** Imports */
 import { arrowDown, arrowUp, exit } from 'ionicons/icons'
 import { EsCardSkeleton } from '../../components/EsCardSkeleton'
-import { useAuth } from '../../services/AuthContext'
 import { EsCardNotResults } from '../../components/EsCardNotResults'
 import { EsCard } from '../../components/EsCard'
 import { SearchByItemNumberComponent } from '../../components/SearchByItemNumberComponent'
 import { SearchByBatchNumberComponent } from '../../components/SearchByBatchNumberComponent'
+import { Separator } from '../../components/Separator'
+import EsCardHeader from '../../components/EsCardHeader'
 
-/* Resources */
+/** Resources */
 import Shape from '../../assets/images/shape_background.svg'
 
-
-/* Custom Css */
+/** Custom Css */
 import './MainMenu.css'
-import EsCardHeader from '../../components/EsCardHeader'
-import { v1WharehouseInterface } from '../../types/v1WharehouseInterface'
-import { Separator } from '../../components/Separator'
 
 setupIonicReact()
 
 const MainMenu: React.FC = () => {
-    const [didLeave, setDidLeave] = useState(false);
-
     const [currentTime, setCurrentTime] = useState(getFormattedTime())
+
     useEffect(() => {
-        // Actualizar el tiempo cada segundo
         const intervalId = setInterval(() => {
             setCurrentTime(getFormattedTime())
         }, 1000)
 
-        // Limpiar el intervalo al desmontar el componente
         return () => clearInterval(intervalId)
-    }, []) // El segundo parámetro [] asegura que el efecto se ejecute solo una vez al montar el componente
+    }, [])
 
     function getFormattedTime() {
         const options: any = {
@@ -67,7 +57,6 @@ const MainMenu: React.FC = () => {
             .replace(' de ', '-')
     }
 
-    const { logout } = useAuth()
     const history = useHistory()
 
     const [searchByItemNumberIsDisabled, setSearchByItemNumberIsDisabled]
@@ -86,7 +75,6 @@ const MainMenu: React.FC = () => {
     )
 
     const searchByItemNumber = () => {
-        // setSearchByItemNumberIsDisabled(false)
         setShowEsCardSkeleton(false)
         setShowModalDelayed(true)
         setTimeout(() => {
@@ -100,7 +88,6 @@ const MainMenu: React.FC = () => {
         }, 100)
     }
     const searchByBatchNumber = () => {
-        // setSearchByBatchNumberIsDisabled(false)
         setShowEsCardSkeleton(false)
         setShowModalDelayed(true)
         setTimeout(() => {
@@ -131,7 +118,6 @@ const MainMenu: React.FC = () => {
     const searchContainerRef: any = useRef<HTMLElement>(null)
     const [showModal, setShowModal] = useState(false)
     const [showModalDelayed, setShowModalDelayed] = useState(false)
-    const [showToTopButton, setShowToTopButton] = useState(false)
     const [showModalResult, setModalResult] = useState(false)
 
     const handleSearch = (results: any) => {
@@ -154,9 +140,8 @@ const MainMenu: React.FC = () => {
         setShowEsCardNoResults(false)
         setShowEsCardSkeleton(true)
         setModalResult(false)
-        if(searchResults.length <= 0)
+        if (searchResults.length <= 0)
             setShowListEsCard(false)
-        // setSearchResults([])
     }
     const handleSearchError = (error: any) => {
         console.log('handleSearchError', error)
@@ -191,7 +176,6 @@ const MainMenu: React.FC = () => {
     }
 
     const logoutApp = () => {
-        // logout()
         history.push('/login')
     }
 
@@ -206,50 +190,6 @@ const MainMenu: React.FC = () => {
             setSize({ width: rect.width, height: rect.height })
         }
     }, [])
-
-    // const slideInAnimation =
-    //     createAnimation('slide-in-left')
-    //         .duration(500)
-    //         .fromTo('opacity', '0', '1')
-    //         .iterations(1)
-
-    // useIonViewDidEnter(() => {
-    //     setTimeout(() => {
-    //         console.log('enter main');
-    //         const element = document.querySelector('#main-page')
-    //         if (element) {
-    //             console.log(element)
-    //             // slideInAnimation.addElement(element)
-    //             // slideInAnimation.play()
-    //         } else {
-    //             // Handle the case where the element doesn't exist (optional)
-    //             console.warn('Element with ID "main" not found.')
-    //         }
-    //     }, 500);
-
-    // })
-
-    // const slideOutAnimation =
-    //     createAnimation('slide-out-left')
-    //         .duration(500)
-    //         .fromTo('opacity', '1', '0')
-    //         .iterations(1)
-
-    // useIonViewWillLeave(() => {
-    //     if (!didLeave) {
-    //         setDidLeave(true);
-    //         console.log('leave main');
-    //         const element = document.querySelector('#login-page')
-    //         if (element) {
-    //             console.log(element)
-    //             // slideOutAnimation.addElement(element)
-    //             // slideOutAnimation.play()
-    //         } else {
-    //             // Handle the case where the element doesn't exist (optional)
-    //             console.warn('Element with ID "main" not found.')
-    //         }
-    //     }
-    // })
 
     return (
         <IonContent>
@@ -310,8 +250,6 @@ const MainMenu: React.FC = () => {
                 </div>
             </div>
 
-            {/* ${showModalResult ? showEsCardSkeleton ? `-translate-y-[calc(100svh/2)] bg-blue-500` : `-translate-y-[calc(100dvh)] mt-76 bg-purple-500 h-max` : `top-[100svh] bg-red-500`} */}
-            {/* ${isModalHiddenDelayed ? `hidden opacity-0` : ``} */}
             <div className={`z-10 bg-white es-shadow-inverted 
                 w-full absolute text-black rounded-t-[2.5rem]
                 ${showModalResult ? `-translate-y-[100svh] mt-76 opacity-100` : `opacity-0`}

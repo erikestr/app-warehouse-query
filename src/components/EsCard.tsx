@@ -1,5 +1,4 @@
-import React from 'react'
-
+/** Imports */
 import { format } from 'date-fns'
 import { EsCardInterface } from '../types/EsCardInterface'
 

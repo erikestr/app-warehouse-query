@@ -1,8 +1,6 @@
+/** React Imports */
 import React from 'react'
 import { useHistory } from 'react-router'
-
-/* TailwindCss directives */
-import '../../assets/tailwind.css';
 
 export const Unauthorized: React.FC = ()=> {
     const history = useHistory()

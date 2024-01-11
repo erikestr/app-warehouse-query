@@ -1,14 +1,14 @@
-import { Redirect, Route, useHistory } from 'react-router-dom';
+/** React Imports */
+import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
   IonRouterOutlet,
   IonSplitPane,
   setupIonicReact,
-  useIonViewDidEnter
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
-/* Optional CSS utils that can be commented out */
+/** Optional CSS utils that can be commented out */
 import '@ionic/react/css/padding.css';
 import '@ionic/react/css/float-elements.css';
 import '@ionic/react/css/text-alignment.css';
@@ -16,10 +16,10 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/* Theme variables */
+/** Theme variables */
 import './theme/variables.css';
 
-/* TailwindCss directives */
+/** TailwindCss directives */
 import './assets/tailwind.css';
 
 /* Imports */

@@ -1,5 +1,7 @@
+/** Ionic Imports */
 import { IonSkeletonText } from '@ionic/react';
 
+/** Imports */
 import './EsCardSkeleton.css'
 
 export const EsCardSkeleton = () => {
