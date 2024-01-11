@@ -25,6 +25,7 @@ import Shape from '../../assets/images/shape_background.svg'
 
 /** Custom Css */
 import './MainMenu.css'
+import EsCardByBatch from '../../components/EsCardByBatch'
 
 setupIonicReact()
 
@@ -70,6 +71,13 @@ const MainMenu: React.FC = () => {
         datos.map(
             (item: any, index: any) => (
                 <EsCard key={index} {...item} />
+            )
+        )
+    )
+    const ListEsCardByBatch = ({ datos }: any) => (
+        datos.map(
+            (item: any, index: any) => (
+                <EsCardByBatch key={index} {...item} />
             )
         )
     )
@@ -133,9 +141,10 @@ const MainMenu: React.FC = () => {
 
     }
     const handleClickSearch = (status: boolean) => {
+        console.log('handleClickSearch', status)
+
         setSearchByItemNumberIsDisabled(true)
         setSearchByBatchNumberIsDisabled(true)
-        console.log('handleClickSearch', status)
 
         setShowEsCardNoResults(false)
         setShowEsCardSkeleton(true)
@@ -157,6 +166,7 @@ const MainMenu: React.FC = () => {
     }
 
     const closeModal = () => {
+        console.log('closeModal', true)
         setShowSearchByItemNumberComponent(false)
         setShowSearchByBatchNumberComponent(false)
         clockContainerRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -286,19 +296,22 @@ const MainMenu: React.FC = () => {
 
                     {showEsCardNoResults && <EsCardNotResults />}
 
-                    {showListEsCard &&
+                    {showListEsCard && showSearchByItemNumberComponent &&
                         <EsCardHeader
                             ITEMNMBR={searchResults[0].ITEMNMBR}
                             ITEMDESC={searchResults[0].ITEMDESC}
                             DEF01STR={searchResults[0].DEF01STR} />
                     }
 
-                    {showListEsCard &&
+                    {showListEsCard && showSearchByItemNumberComponent &&
                         <Separator />
                     }
 
-                    {showListEsCard &&
+                    {showListEsCard && showSearchByItemNumberComponent &&
                         <ListEsCard datos={searchResults} />}
+
+                    {showListEsCard && showSearchByBatchNumberComponent &&
+                        <ListEsCardByBatch datos={searchResults} />}
 
                 </div>
 

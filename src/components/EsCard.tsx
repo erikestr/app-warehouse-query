@@ -5,38 +5,34 @@ import { EsCardInterface } from '../types/EsCardInterface'
 export const EsCard = ({ ITEMNMBR, ITEMDESC, LOTNUMBR, BIN, EAN13Adaia,
     MFGDATE, EXPNDATE, QTYONHND, ATYALLOC, QTYDISPO }: EsCardInterface) => {
     return (
-        <div className='es-card flex flex-col space-y-0 p-8'>
+        <div className='es-card flex flex-col space-y-0 p-8 text-center'>
 
-            <div className='flex flex-row'>
-                <div className='flex flex-col w-full'>
-                    <p className='mt-2 text-2xl font-bold'>Almacen</p>
-                    <p className='mt-0 text-xl text '>-</p>
-                </div>
-                <div className='flex flex-col w-full'>
-                    <p className='mt-2 text-2xl font-bold'>Lote</p>
-                    <p className='mt-0 text-xl text '>{LOTNUMBR}</p>
+            <div className='flex flex-row justify-center'>
+                <div className='flex flex-col'>
+                    <p className='mt-2 text-2xl'>Lote</p>
+                    <p className='mt-0 text-xl text font-bold'>{LOTNUMBR}</p>
                 </div>
             </div>
+            <div className='flex flex-row'>
+                <div className='flex flex-col w-full'>
+                    <p className='mt-2 text-2xl'>Fecha Fab.</p>
+                    <p className='mt-0 text-xl text font-bold'>{format(MFGDATE, 'dd-MM-yyyy')}</p>
+                </div>
+                <div className='flex flex-col w-full'>
+                    <p className='mt-2 text-2xl'>Fecha Cad.</p>
+                    <p className='mt-0 text-xl text font-bold'>{format(EXPNDATE, 'dd-MM-yyyy')}</p>
+                </div>
 
-            {/* <div className='flex flex-col w-full'>
-                <p className='mt-2 text-2xl font-bold'>Descripción</p>
-                <p className='mt-0 text-xl text  text-justify'>{ITEMDESC}</p>
-            </div> */}
+            </div>
 
             <div className='flex flex-row'>
                 <div className='flex flex-col w-full'>
-                    <p className='mt-2 text-2xl font-bold'>Fecha Fab.</p>
-                    <p className='mt-0 text-xl text'>{format(MFGDATE, 'dd-MM-yyyy')}</p>
-
-                    <p className='mt-2 text-2xl font-bold'>Disponible</p>
-                    <p className='mt-0 text-xl text '>{QTYDISPO}</p>
+                    <p className='mt-2 text-2xl'>Disponible</p>
+                    <p className='mt-0 text-xl text font-bold'>{QTYDISPO > 0 ? QTYDISPO.toLocaleString() : '-'}</p>
                 </div>
                 <div className='flex flex-col w-full'>
-                    <p className='mt-2 text-2xl font-bold'>Fecha Cad.</p>
-                    <p className='mt-0 text-xl text '>{format(EXPNDATE, 'dd-MM-yyyy')}</p>
-
-                    <p className='mt-2 text-2xl font-bold'>Existencia</p>
-                    <p className='mt-0 text-xl text '>{QTYONHND}</p>
+                    <p className='mt-2 text-2xl'>Existencia</p>
+                    <p className='mt-0 text-xl text font-bold'>{QTYONHND > 0 ? QTYONHND?.toLocaleString() : '-'}</p>
                 </div>
             </div>
 

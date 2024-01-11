@@ -9,4 +9,5 @@ export interface EsCardInterface {
     QTYONHND: number
     ATYALLOC: number
     QTYDISPO: number
+    DEF01STR?: string
 }
