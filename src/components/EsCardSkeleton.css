@@ -1,0 +1,5 @@
+ion-skeleton-text {
+    --border-radius: 9999px;
+    --background: rgb(17, 17, 17);
+    --background-rgb: 17, 17, 17;
+}
