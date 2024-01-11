@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'app-warehouse-query',
+  appId: 'com.jayor.mx.warehouse.query',
+  appName: 'Jayor Inventarios Consulta',
   webDir: 'dist',
   server: {
     androidScheme: 'http',

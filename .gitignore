@@ -11,10 +11,6 @@
 # production
 /dist
 
-# android
-/android/.gradle/*
-/android/app/build/*
-
 # misc
 .DS_Store
 .env.local
@@ -31,3 +27,6 @@ yarn-error.log*
 
 # Optional eslint cache
 .eslintcache
+
+# android
+/android
