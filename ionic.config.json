@@ -1,8 +1,0 @@
-{
-  "name": "Jayor Inventarios Consulta",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react-vite",
-  "id": "99ce5369"
-}
