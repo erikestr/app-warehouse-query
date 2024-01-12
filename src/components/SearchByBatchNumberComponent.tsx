@@ -6,8 +6,8 @@ import { IonIcon } from '@ionic/react';
 import { searchOutline } from 'ionicons/icons';
 
 /** Imports */
-import { listExistences } from '../services/Api';
 import { v1WharehouseInterface } from '../types/v1WharehouseInterface';
+import { listExistences } from '../services/Api';
 
 export const SearchByBatchNumberComponent = ({ onSearch, onClickSearch, onError }: any) => {
     const [searchResults, setSearchResults]: any[] = useState([]);
