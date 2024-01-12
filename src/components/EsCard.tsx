@@ -27,12 +27,12 @@ export const EsCard = ({ ITEMNMBR, ITEMDESC, LOTNUMBR, BIN, EAN13Adaia,
 
             <div className='flex flex-row'>
                 <div className='flex flex-col w-full'>
-                    <p className='mt-2 text-2xl'>Disponible</p>
-                    <p className='mt-0 text-xl text font-bold'>{QTYDISPO > 0 ? QTYDISPO.toLocaleString() : '-'}</p>
-                </div>
-                <div className='flex flex-col w-full'>
                     <p className='mt-2 text-2xl'>Existencia</p>
                     <p className='mt-0 text-xl text font-bold'>{QTYONHND > 0 ? QTYONHND?.toLocaleString() : '-'}</p>
+                </div>
+                <div className='flex flex-col w-full'>
+                    <p className='mt-2 text-2xl'>Disponible</p>
+                    <p className='mt-0 text-xl text font-bold'>{QTYDISPO > 0 ? QTYDISPO.toLocaleString() : '-'}</p>
                 </div>
             </div>
 
