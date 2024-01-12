@@ -1,9 +1,22 @@
 R_DEF: Internal format may change without notice
 local
+color air_force_blue
+color deep_carmine_pink
+color eucalyptus_green
+color fire_opal_pink
+color gray
 color ic_launcher_background
+color medium_aquamarine_green
+color space_cadet_blue
+dimen border_corner
+drawable bg_gradient_blue_rounded
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable jayor_logo
 drawable splash
+id imageView5
+id imageView6
+layout activity_app_updater
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_background

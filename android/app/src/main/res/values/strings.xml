@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Jayor Consulta de Inventarios</string>
+    <string name="title_activity_main">Jayor Consulta de Inventarios</string>
+    <string name="package_name">com.jayor.mx.warehouse.query</string>
+    <string name="custom_url_scheme">com.jayor.mx.warehouse.query</string>
+</resources>
