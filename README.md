@@ -82,3 +82,8 @@ key alias pass: `J@y0r.1234?`
 
 App Transport Security Settings
     * Allow Arbitrary Loads > YES
+
+### Assets
+```bash
+    npx capacitor-assets generate [--android|--ios]
+```
