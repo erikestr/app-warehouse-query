@@ -84,12 +84,12 @@
                 {
                     "source": "C:\\Users\\MXJAYORDS204\\Desktop\\PROJECTS\\app-warehouse-query\\frontend\\app-warehouse-query\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "4,12,-1",
-                        "startColumns": "4,4,-1",
-                        "startOffsets": "93,493,-1",
-                        "endLines": "10,17,-1",
-                        "endColumns": "12,12,-1",
-                        "endOffsets": "487,812,-1"
+                        "startLines": "4,-1,-1",
+                        "startColumns": "4,-1,-1",
+                        "startOffsets": "93,-1,-1",
+                        "endLines": "10,-1,-1",
+                        "endColumns": "12,-1,-1",
+                        "endOffsets": "487,-1,-1"
                     },
                     "to": {
                         "startLines": "2170,2177,2183",

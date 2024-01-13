@@ -190,38 +190,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\MXJAYORDS204\\.gradle\\daemon\\8.0.2\\com.jayor.mx.warehouse.query.app-merged_res-34:\\values-large-v4_values-large-v4.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\MXJAYORDS204\\.gradle\\caches\\transforms-3\\8bb8b13c1438848676861a1388a97eb3\\transformed\\appcompat-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\MXJAYORDS204\\.gradle\\caches\\transforms-3\\24c93bfcc886e859b9612e49cc5012a9\\transformed\\material-1.11.0\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,169,285,407",
-                        "endColumns": "113,115,121,133",
-                        "endOffsets": "164,280,402,536"
-                    },
-                    "to": {
-                        "startLines": "11,12,13,14",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "752,866,982,1104",
-                        "endColumns": "113,115,121,133",
-                        "endOffsets": "861,977,1099,1233"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\MXJAYORDS204\\.gradle\\daemon\\8.0.2\\com.jayor.mx.warehouse.query.app-merged_res-34:\\values-en-rGB_values-en-rGB.arsc.flat",
             "map": [
                 {
@@ -275,6 +243,38 @@
                         "startOffsets": "3386,3482,3584,3683,3782,3886,3989,9103",
                         "endColumns": "95,101,98,98,103,102,115,100",
                         "endOffsets": "3477,3579,3678,3777,3881,3984,4100,9199"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\MXJAYORDS204\\.gradle\\daemon\\8.0.2\\com.jayor.mx.warehouse.query.app-merged_res-34:\\values-large-v4_values-large-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\MXJAYORDS204\\.gradle\\caches\\transforms-3\\8bb8b13c1438848676861a1388a97eb3\\transformed\\appcompat-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MXJAYORDS204\\.gradle\\caches\\transforms-3\\24c93bfcc886e859b9612e49cc5012a9\\transformed\\material-1.11.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,169,285,407",
+                        "endColumns": "113,115,121,133",
+                        "endOffsets": "164,280,402,536"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "752,866,982,1104",
+                        "endColumns": "113,115,121,133",
+                        "endOffsets": "861,977,1099,1233"
                     }
                 }
             ]
@@ -3060,12 +3060,12 @@
                 {
                     "source": "C:\\Users\\MXJAYORDS204\\Desktop\\PROJECTS\\app-warehouse-query\\frontend\\app-warehouse-query\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "4,12,-1",
-                        "startColumns": "4,4,-1",
-                        "startOffsets": "93,493,-1",
-                        "endLines": "10,17,-1",
-                        "endColumns": "12,12,-1",
-                        "endOffsets": "487,812,-1"
+                        "startLines": "4,-1,-1",
+                        "startColumns": "4,-1,-1",
+                        "startOffsets": "93,-1,-1",
+                        "endLines": "10,-1,-1",
+                        "endColumns": "12,-1,-1",
+                        "endOffsets": "487,-1,-1"
                     },
                     "to": {
                         "startLines": "2170,2177,2183",

@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:35:9-43:20
+INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:36:9-44:20
 	android:grantUriPermissions
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:39:13-47
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:40:13-47
 	android:authorities
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:37:13-64
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:38:13-64
 	android:exported
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:38:13-37
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:36:13-62
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:37:13-62
 manifest
-ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
+ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:capacitor-app] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-haptics] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -66,20 +66,20 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\48f44416a1aa2afb113010b955b67f94\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\c4eb8610416ba9fcff7203d70109fbae\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.apache.cordova:framework:10.1.1] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\05c878bccf3e6fff3e743a9590f85fe9\transformed\framework-10.1.1\AndroidManifest.xml:20:1-27:12
-INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
 	package
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-46:12
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:1-47:12
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:2:11-69
@@ -88,7 +88,7 @@ ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\a
 	android:name
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:6:5-44:19
+ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:6:5-45:19
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-9:19
 MERGED from [:capacitor-cordova-android-plugins] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-9:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\24c93bfcc886e859b9612e49cc5012a9\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
@@ -144,7 +144,7 @@ ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\a
 	android:name
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:21:27-74
 activity#com.jayor.mx.warehouse.query.MainActivity
-ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:25:9-33:20
+ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:25:9-34:20
 	android:screenOrientation
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:32:13-49
 	android:label
@@ -157,6 +157,8 @@ ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\a
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:27:13-129
 	android:theme
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:31:13-62
+	android:enableOnBackInvokedCallback
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:33:13-55
 	android:name
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:26:13-41
 uses-sdk
@@ -276,11 +278,11 @@ INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\fronten
 		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:40:13-42:54
+ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:41:13-43:54
 	android:resource
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:42:17-51
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:43:17-51
 	android:name
-		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:41:17-67
+		ADDED from C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:42:17-67
 uses-permission#android.permission.VIBRATE
 ADDED from [:capacitor-haptics] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\node_modules\@capacitor\haptics\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-66
 	android:name
