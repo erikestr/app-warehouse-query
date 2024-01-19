@@ -31,13 +31,44 @@ setupIonicReact()
 
 const MainMenu: React.FC = () => {
     const [currentTime, setCurrentTime] = useState(getFormattedTime())
+    const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
+    const headerRef: any = useRef(null);
+    let header: any
+
+    const handleScroll = (elTopOffset: any, elHeight: any) => {
+        if (window.pageYOffset > (elTopOffset + elHeight)) {
+            setSticky({ isSticky: true, offset: elHeight })
+        } else {
+            setSticky({ isSticky: false, offset: 0 })
+        }
+    }
+
+    const handleScrollEvent = () => {
+        console.log("handleScrollEvent");
+        handleScroll(header.top, header.height)
+    }
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentTime(getFormattedTime())
         }, 1000)
 
-        return () => clearInterval(intervalId)
+        if (headerRef.current) {
+            console.log(headerRef.current);
+            
+            header = headerRef.current.getBoundingClientRect();
+
+            window.addEventListener('scroll', handleScrollEvent);
+
+            return () => {
+
+            };
+        }
+
+        return () => {
+            clearInterval(intervalId)
+            window.removeEventListener('scroll', handleScrollEvent)
+        }
     }, [])
 
     function getFormattedTime() {
@@ -200,7 +231,6 @@ const MainMenu: React.FC = () => {
             setSize({ width: rect.width, height: rect.height })
         }
     }, [])
-
     return (
         <IonContent>
             <div slot='fixed' className='fixed bottom-0 right-0 p-4'>
@@ -297,10 +327,15 @@ const MainMenu: React.FC = () => {
                     {showEsCardNoResults && <EsCardNotResults />}
 
                     {showListEsCard && showSearchByItemNumberComponent &&
-                        <EsCardHeader
-                            ITEMNMBR={searchResults[0].ITEMNMBR}
-                            ITEMDESC={searchResults[0].ITEMDESC}
-                            DEF01STR={searchResults[0].DEF01STR} />
+                        <div
+                            id="sticky-header"
+                            className={`navbar${sticky.isSticky ? ' sticky' : ''}`}
+                            ref={headerRef}>
+                            <EsCardHeader
+                                ITEMNMBR={searchResults[0].ITEMNMBR}
+                                ITEMDESC={searchResults[0].ITEMDESC}
+                                DEF01STR={searchResults[0].DEF01STR} />
+                        </div>
                     }
 
                     {showListEsCard && showSearchByItemNumberComponent &&
