@@ -28,3 +28,10 @@ yarn-error.log*
 
 # Optional eslint cache
 .eslintcache
+
+# ionic-android
+android/app/build
+android/.gradle
+android/app/src
+android/capacitor-cordova-android-plugins
+android/app/release
