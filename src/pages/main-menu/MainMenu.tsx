@@ -33,9 +33,12 @@ setupIonicReact()
 
 const MainMenu: React.FC = () => {
     const [currentTime, setCurrentTime] = useState(getFormattedTime())
-    const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
-    const headerRef: any = useRef(null);
-    let header: any
+    const [sticky, setSticky] = useState({ isSticky: false, offset: 0 })
+    const headerRef: any = useRef(null)
+    const searchRefItem: any = useRef(null)
+    const searchRefBatch: any = useRef(null)
+
+    let header: DOMRect
 
     const handleScrollf = (elTopOffset: any, elHeight: any) => {
         if (window.pageYOffset > (elTopOffset + elHeight)) {
@@ -46,7 +49,7 @@ const MainMenu: React.FC = () => {
     }
 
     const handleScrollEvent = () => {
-        console.log("handleScrollEvent");
+        console.log("handleScrollEvent")
         handleScrollf(header.top, header.height)
     }
 
@@ -55,21 +58,8 @@ const MainMenu: React.FC = () => {
             setCurrentTime(getFormattedTime())
         }, 1000)
 
-        if (headerRef.current) {
-            console.log(headerRef.current);
-
-            header = headerRef.current.getBoundingClientRect();
-
-            window.addEventListener('scroll', handleScrollEvent);
-
-            return () => {
-
-            };
-        }
-
         return () => {
             clearInterval(intervalId)
-            window.removeEventListener('scroll', handleScrollEvent)
         }
     }, [])
 
@@ -128,6 +118,7 @@ const MainMenu: React.FC = () => {
             setShowSearchByBatchNumberComponent(false)
         }, 100)
     }
+
     const searchByBatchNumber = () => {
         setShowEsCardSkeleton(false)
         setShowModalDelayed(true)
@@ -222,20 +213,56 @@ const MainMenu: React.FC = () => {
         history.push('/login')
     }
 
+    const positionTop: number = 0;
+    const lastPosition: number = 0;
+
     const handleScrollStart = () => {
-        console.log('scroll start');
+        // console.log('scroll start')
     }
 
     const handleScroll = (ev: CustomEvent<ScrollDetail>) => {
-        console.log('scroll', JSON.stringify(ev.detail));
+        // console.log('scroll', JSON.stringify(ev.detail))
+
+        if (searchRefItem.current) {
+            const node = searchRefItem.current
+            const searchRefItemPosition = searchRefItem.current.getBoundingClientRect()
+            console.log(searchRefItemPosition);
+
+            if (searchRefItemPosition.bottom <= 0) {
+                if (headerRef.current) {
+                    const node = headerRef.current
+                    const headerPosition = node.getBoundingClientRect()
+
+                    sticky.isSticky = true;
+
+                    if (headerPosition.top <= 32) {
+                        node.style.translate = `0px ${ev.detail.scrollTop - 500}px`;
+                    }
+                    if (headerPosition.top >= 32) {
+                        node.style.translate = `0px ${ev.detail.scrollTop - 500}px`;
+                    }
+                }
+            }
+            else {
+                setTimeout(() => {
+                    node.style.translate = `0px -32px`;
+                    sticky.isSticky = false;
+                }, 500);
+            }
+        }
     }
 
     const handleScrollEnd = () => {
-        console.log('scroll end');
+        // console.log('scroll end')
     }
 
     return (
-        <IonContent>
+        <IonContent
+            scrollEvents={true}
+            onIonScrollStart={handleScrollStart}
+            onIonScroll={handleScroll}
+            onIonScrollEnd={handleScrollEnd}>
+
             <div slot='fixed' className='fixed bottom-0 right-0 p-4'>
                 {showModalResult &&
                     <button className={`es-button w-8 h-8 p-1 m-0 rounded-full flex
@@ -246,6 +273,7 @@ const MainMenu: React.FC = () => {
                     </button>
                 }
             </div>
+
             <div className='absolute z-0' ref={clockContainerRef}>
                 <IonImg
                     src={Shape}
@@ -301,7 +329,8 @@ const MainMenu: React.FC = () => {
                 style={{ display: showModalDelayed ? 'flex' : 'none' }}>
 
                 <div className={`flex flex-col p-8 space-y-8 w-full
-                    ${showEsCardSkeleton ? `h-max` : `h-auto`}`}>
+                    ${showEsCardSkeleton ? `h-max` : `h-auto`}
+                    relative`}>
 
                     <div className='absolute top-0 right-0 p-[1rem]'>
                         <button className='es-button es-bg-gray-gradient w-8 
@@ -314,36 +343,37 @@ const MainMenu: React.FC = () => {
                     <h1 className='text-4xl font-thin' ref={searchContainerRef}>Busqueda</h1>
 
                     {showSearchByItemNumberComponent &&
-                        <SearchByItemNumberComponent
-                            onSearch={handleSearch}
-                            onClickSearch={handleClickSearch}
-                            onError={handleSearchError} />}
+                        <div ref={searchRefItem}>
+                            <SearchByItemNumberComponent
+                                onSearch={handleSearch}
+                                onClickSearch={handleClickSearch}
+                                onError={handleSearchError} />
+                        </div>
+                    }
 
                     {showSearchByBatchNumberComponent &&
-                        <SearchByBatchNumberComponent
-                            onSearch={handleSearch}
-                            onClickSearch={handleClickSearch}
-                            onError={handleSearchError} />}
+                        <div ref={searchRefBatch}>
+                            <SearchByBatchNumberComponent
+                                onSearch={handleSearch}
+                                onClickSearch={handleClickSearch}
+                                onError={handleSearchError} />
+                        </div>
+                    }
 
                     {showEsCardSkeleton && <EsCardSkeleton />}
 
                     {showEsCardNoResults && <EsCardNotResults />}
 
                     {showListEsCard && showSearchByItemNumberComponent &&
-                        <IonContent
-                            scrollEvents={true}
-                            onIonScrollStart={handleScrollStart}
-                            onIonScroll={handleScroll}
-                            onIonScrollEnd={handleScrollEnd}>
+                        <div ref={headerRef} className={`mt-8 mb-8 transition-all`}>
                             <EsCardHeader
                                 ITEMNMBR={searchResults[0].ITEMNMBR}
                                 ITEMDESC={searchResults[0].ITEMDESC}
                                 DEF01STR={searchResults[0].DEF01STR} />
-                        </IonContent>
-                    }
-
-                    {showListEsCard && showSearchByItemNumberComponent &&
-                        <Separator />
+                            <div className={`transition-all mt-8 ${sticky.isSticky ? `opacity-0`:`opacity-1`}`}>
+                                <Separator />
+                            </div>
+                        </div>
                     }
 
                     {showListEsCard && showSearchByItemNumberComponent &&
@@ -355,7 +385,7 @@ const MainMenu: React.FC = () => {
                 </div>
 
             </div>
-        </IonContent>
+        </IonContent >
     )
 }
 
