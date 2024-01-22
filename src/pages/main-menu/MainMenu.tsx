@@ -7,6 +7,7 @@ import {
     IonContent,
     IonIcon,
     IonImg,
+    ScrollDetail,
     setupIonicReact,
 } from '@ionic/react'
 
@@ -29,13 +30,14 @@ import EsCardByBatch from '../../components/EsCardByBatch'
 
 setupIonicReact()
 
+
 const MainMenu: React.FC = () => {
     const [currentTime, setCurrentTime] = useState(getFormattedTime())
     const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
     const headerRef: any = useRef(null);
     let header: any
 
-    const handleScroll = (elTopOffset: any, elHeight: any) => {
+    const handleScrollf = (elTopOffset: any, elHeight: any) => {
         if (window.pageYOffset > (elTopOffset + elHeight)) {
             setSticky({ isSticky: true, offset: elHeight })
         } else {
@@ -45,7 +47,7 @@ const MainMenu: React.FC = () => {
 
     const handleScrollEvent = () => {
         console.log("handleScrollEvent");
-        handleScroll(header.top, header.height)
+        handleScrollf(header.top, header.height)
     }
 
     useEffect(() => {
@@ -55,7 +57,7 @@ const MainMenu: React.FC = () => {
 
         if (headerRef.current) {
             console.log(headerRef.current);
-            
+
             header = headerRef.current.getBoundingClientRect();
 
             window.addEventListener('scroll', handleScrollEvent);
@@ -220,17 +222,18 @@ const MainMenu: React.FC = () => {
         history.push('/login')
     }
 
-    const targetRef: any = useRef(null)
-    const [position, setPosition] = useState({ top: 0, left: 0 })
-    const [size, setSize] = useState({ width: 0, height: 0 })
+    const handleScrollStart = () => {
+        console.log('scroll start');
+    }
 
-    useEffect(() => {
-        if (targetRef.current) {
-            const rect = targetRef.current.getBoundingClientRect()
-            setPosition({ top: rect.top, left: rect.left })
-            setSize({ width: rect.width, height: rect.height })
-        }
-    }, [])
+    const handleScroll = (ev: CustomEvent<ScrollDetail>) => {
+        console.log('scroll', JSON.stringify(ev.detail));
+    }
+
+    const handleScrollEnd = () => {
+        console.log('scroll end');
+    }
+
     return (
         <IonContent>
             <div slot='fixed' className='fixed bottom-0 right-0 p-4'>
@@ -327,15 +330,16 @@ const MainMenu: React.FC = () => {
                     {showEsCardNoResults && <EsCardNotResults />}
 
                     {showListEsCard && showSearchByItemNumberComponent &&
-                        <div
-                            id="sticky-header"
-                            className={`navbar${sticky.isSticky ? ' sticky' : ''}`}
-                            ref={headerRef}>
+                        <IonContent
+                            scrollEvents={true}
+                            onIonScrollStart={handleScrollStart}
+                            onIonScroll={handleScroll}
+                            onIonScrollEnd={handleScrollEnd}>
                             <EsCardHeader
                                 ITEMNMBR={searchResults[0].ITEMNMBR}
                                 ITEMDESC={searchResults[0].ITEMDESC}
                                 DEF01STR={searchResults[0].DEF01STR} />
-                        </div>
+                        </IonContent>
                     }
 
                     {showListEsCard && showSearchByItemNumberComponent &&
