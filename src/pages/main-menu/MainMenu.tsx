@@ -27,6 +27,7 @@ import Shape from '../../assets/images/shape_background.svg'
 /** Custom Css */
 import './MainMenu.css'
 import EsCardByBatch from '../../components/EsCardByBatch'
+import { EsCardInterface } from '../../types/EsCardInterface'
 
 setupIonicReact()
 
@@ -92,7 +93,7 @@ const MainMenu: React.FC = () => {
 
     const ListEsCard = ({ datos }: any) => (
         datos.map(
-            (item: any, index: any) => (
+            (item: EsCardInterface, index: any) => (
                 <EsCard key={index} {...item} />
             )
         )
@@ -369,8 +370,14 @@ const MainMenu: React.FC = () => {
                             <EsCardHeader
                                 ITEMNMBR={searchResults[0].ITEMNMBR}
                                 ITEMDESC={searchResults[0].ITEMDESC}
-                                DEF01STR={searchResults[0].DEF01STR} />
-                            <div className={`transition-all mt-8 ${sticky.isSticky ? `opacity-0`:`opacity-1`}`}>
+                                DEF01STR={searchResults[0].DEF01STR}
+                                DEF01DEC={searchResults.reduce((accumulator: any, currentValue: EsCardInterface) => {
+                                    return accumulator + currentValue.QTYONHND;
+                                }, 0)}
+                                DEF02DEC={searchResults.reduce((accumulator: any, currentValue: EsCardInterface) => {
+                                    return accumulator + currentValue.QTYDISPO;
+                                }, 0)} />
+                            <div className={`transition-all mt-8 ${sticky.isSticky ? `opacity-0` : `opacity-1`}`}>
                                 <Separator />
                             </div>
                         </div>
