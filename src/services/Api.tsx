@@ -25,10 +25,10 @@ export const authLogin = async (username: string, password: string, remeber: boo
       sessionStorage.setItem('_sys_user', data['sys_user']);
       return data;
     } else {
-      throw new Error('Login failed');
+      throw new Error('Login failed', {cause: response.status});
     }
   } catch (error: any) {
-    throw new Error(`Error in login request: ${error.message}`);
+    throw new Error(`Error in login request: ${error.message}`, {cause: error.cause});
   }
 };
 
