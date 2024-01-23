@@ -3,6 +3,7 @@ ion-item {
     --color: black;
     --padding-start: 0px;
     --inner-padding-end: 0px;
+    --border-color: #e2e2e2;
 }
 
 ion-list {

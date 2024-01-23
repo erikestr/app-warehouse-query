@@ -8,12 +8,13 @@ import { searchOutline } from 'ionicons/icons';
 /** Imports */
 import { listExistences } from '../services/Api';
 import { v1WharehouseInterface } from '../types/v1WharehouseInterface';
+import { useMediaQuery } from '@uidotdev/usehooks';
 
 export const SearchByItemNumberComponent = ({ onSearch, onClickSearch, onError }: any) => {
     const [searchResults, setSearchResults]: any = useState([])
-
     const [isSearching, setIsSearching] = useState(false)
-    const [code, setCode] = useState('')
+    const [code, setCode] = useState('10200500-3')
+    const isSmallDevice = useMediaQuery("only screen and (max-width : 320px)")
 
     const userid = sessionStorage.getItem('sys_user') ?? 'sa';
 
@@ -40,24 +41,39 @@ export const SearchByItemNumberComponent = ({ onSearch, onClickSearch, onError }
     }
 
     return (
-        <div className="es-card flex-col space-x-2">
-            <div className='flex flex-row space-x-2'>
-
-                <span className='es-input-span w-full'>
-                    <input className='es-input w-full' type='text'
-                        placeholder='Artículo'
-                        value={code}
+        <div
+            className="es-card flex-col space-x-2">
+            <div
+                className='flex flex-row space-x-2'>
+                <span
+                    className={`es-input-span w-full 
+                    transition-all
+                    ${isSmallDevice
+                            ? `h-[2.75rem]`
+                            : `h-12`}`}>
+                    <input
+                        className={`es-input w-full
+                        transition-all
+                        ${isSmallDevice
+                                ? `text-sm h-[2.25rem] px-1`
+                                : `text-xl h-10`}`}
                         onChange={(e) => setCode(e.target.value)}
+                        placeholder='Artículo'
                         onKeyUp={handleKeyUp}
                         autoComplete='off'
-                        spellCheck='false' />
+                        spellCheck='false'
+                        value={code}
+                        type='text' />
                     <span></span>
                 </span>
 
-                <button className='es-button w-12 h-12 p-3 m-0 rounded-full flex'
+                <button
+                    className='es-button w-12 h-12 p-3 m-0 rounded-full flex'
                     onClick={handleSearch}
                     disabled={isSearching}>
-                    <IonIcon icon={searchOutline} className=' scale-110'></IonIcon>
+                    <IonIcon
+                        icon={searchOutline}
+                        className=' scale-110'></IonIcon>
                 </button>
 
             </div>

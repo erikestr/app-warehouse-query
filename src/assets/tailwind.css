@@ -98,6 +98,12 @@
         shadow-[rgba(13,_38,_76,_0.19)_0px_2px_10px];
     }
 
+    .es-card-item {
+        @apply w-full p-4 flex flex-col space-y-8 bg-white 
+        rounded-3xl text-black border-scblue border-2
+        shadow-[rgba(13,_38,_76,_0.5)_0px_2px_8px];
+    }
+
     .es-shadow {
         @apply shadow-[4.0px_4.0px_4.0px_rgba(0,0,0,0.38)];
     }

@@ -18,8 +18,6 @@ import { EsCardNotResults } from '../../components/EsCardNotResults'
 import { EsCard } from '../../components/EsCard'
 import { SearchByItemNumberComponent } from '../../components/SearchByItemNumberComponent'
 import { SearchByBatchNumberComponent } from '../../components/SearchByBatchNumberComponent'
-import { Separator } from '../../components/Separator'
-import EsCardHeader from '../../components/EsCardHeader'
 
 /** Resources */
 import Shape from '../../assets/images/shape_background.svg'
@@ -29,6 +27,7 @@ import './MainMenu.css'
 import EsCardByBatch from '../../components/EsCardByBatch'
 import { EsCardInterface } from '../../types/EsCardInterface'
 import { ItemsPage } from '../items/ItemsPage'
+import { useMediaQuery } from '@uidotdev/usehooks'
 
 setupIonicReact()
 
@@ -39,21 +38,7 @@ const MainMenu: React.FC = () => {
     const headerRef: any = useRef(null)
     const searchRefItem: any = useRef(null)
     const searchRefBatch: any = useRef(null)
-
-    let header: DOMRect
-
-    const handleScrollf = (elTopOffset: any, elHeight: any) => {
-        if (window.pageYOffset > (elTopOffset + elHeight)) {
-            setSticky({ isSticky: true, offset: elHeight })
-        } else {
-            setSticky({ isSticky: false, offset: 0 })
-        }
-    }
-
-    const handleScrollEvent = () => {
-        console.log("handleScrollEvent")
-        handleScrollf(header.top, header.height)
-    }
+    const isSmallDevice = useMediaQuery("only screen and (max-width : 320px)")
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -215,9 +200,6 @@ const MainMenu: React.FC = () => {
         history.push('/login')
     }
 
-    const positionTop: number = 0;
-    const lastPosition: number = 0;
-
     const handleScrollStart = () => {
         // console.log('scroll start')
     }
@@ -265,57 +247,94 @@ const MainMenu: React.FC = () => {
             onIonScroll={handleScroll}
             onIonScrollEnd={handleScrollEnd}>
 
-            <div slot='fixed' className='fixed bottom-0 right-0 p-4'>
+            <div
+                slot='fixed'
+                className='fixed bottom-0 right-0 p-4'>
                 {showModalResult &&
-                    <button className={`es-button w-8 h-8 p-1 m-0 rounded-full flex
-                    ${showModalResult ? `opacity-100` : `opacity-0`}
-                    transition delay-500 duration-500 ease-in-out`}
+                    <button
+                        className={`es-button w-8 h-8 p-1 m-0 rounded-full flex
+                        transition delay-500 duration-500 ease-in-out
+                        ${showModalResult
+                                ? `opacity-100`
+                                : `opacity-0`}`}
                         onClick={scrollToTop}>
-                        <IonIcon icon={arrowUp} className=' scale-75'></IonIcon>
+                        <IonIcon
+                            icon={arrowUp}
+                            className=' scale-75'></IonIcon>
                     </button>
                 }
             </div>
 
-            <div className='absolute z-0' ref={clockContainerRef}>
+            <div
+                className='absolute z-0'
+                ref={clockContainerRef}>
                 <IonImg
                     src={Shape}
-                    alt='Laboratorios Jayor México'>
-                </IonImg>
+                    alt='Laboratorios Jayor México'></IonImg>
             </div>
 
-            <div className='absolute top-0 right-0 m-4 z-40'>
-                <button className='es-button-red w-8 h-8 p-1 m-0 rounded-full 
-                flex absolute right-[10%]'
+            <div
+                className='absolute top-0 right-0 m-4 z-40'>
+                <button
+                    className='es-button-red w-8 h-8 p-1 m-0 rounded-full 
+                    flex absolute right-[10%]'
                     onClick={logoutApp}>
-                    <IonIcon icon={exit} className=' scale-75'></IonIcon>
+                    <IonIcon
+                        icon={exit}
+                        className=' scale-75'></IonIcon>
                 </button>
             </div>
 
-            <div className='w-full h-svh flex flex-col p-8 space-y-8 z-30'>
-                <div className='w-full z-20'>
-                    <input className='es-input hover:es-no-hover w-full 
-                        es-shadow'
-                        type='tebxt' placeholder='Ingrese su usuario'
-                        value={currentTime} readOnly />
+            <div
+                className='w-full h-svh flex flex-col p-8 space-y-8 z-30'>
+                <div
+                    className='w-full z-20'>
+                    <input
+                        className={`es-input hover:es-no-hover w-full es-shadow
+                        ${isSmallDevice
+                                ? `text-sm`
+                                : `text-lg`}`}
+                        placeholder='Ingrese su usuario'
+                        value={currentTime}
+                        type='text'
+                        readOnly />
                 </div>
 
-                <div className={`es-card z-10
-                ${isCentered ? `translate-y-[calc(50svh/2)]` : `translate-y-0`}
-                transition duration-500 ease-in-out`}>
+                <div
+                    className={`es-card z-10 transition duration-500 ease-in-out
+                    ${isCentered
+                            ? `translate-y-[calc(50svh/2)]`
+                            : `translate-y-0`}`}>
 
-                    <div className='w-full'>
-                        <button className={`${showSearchByItemNumberComponent ? `transition-all ease-out duration-70 es-button-green text-scblue` : `es-button`}`}
-                            onClick={searchByItemNumber}
+                    <div
+                        className='w-full'>
+                        <button
+                            className={`transition-all ease-out duration-70
+                            ${showSearchByItemNumberComponent
+                                    ? `es-button-green text-scblue`
+                                    : `es-button`}
+                            ${isSmallDevice
+                                    ? `text-sm font-semibold`
+                                    : `text-2xl`}`}
                             disabled={searchByItemNumberIsDisabled}
+                            onClick={searchByItemNumber}
                             id='open-modal-a'>
                             Por Artículo
                         </button>
                     </div>
 
-                    <div className='w-full'>
-                        <button className={`${showSearchByBatchNumberComponent ? ` transition-all ease-out duration-70 es-button-green text-scblue` : `es-button`}`}
-                            onClick={searchByBatchNumber}
+                    <div
+                        className='w-full'>
+                        <button
+                            className={`transition-all ease-out duration-70
+                            ${showSearchByBatchNumberComponent
+                                    ? `es-button-green text-scblue`
+                                    : `es-button`}
+                            ${isSmallDevice
+                                    ? `text-sm font-semibold`
+                                    : `text-2xl`}`}
                             disabled={searchByBatchNumberIsDisabled}
+                            onClick={searchByBatchNumber}
                             id='open-modal-b'>
                             Por Lote
                         </button>
@@ -333,31 +352,41 @@ const MainMenu: React.FC = () => {
                 ${showModal
                         ? `-translate-y-[calc(100svh/2)] h-[calc(100svh/2)] opacity-100`
                         : `opacity-0`}`}
-                style={{
-                    display: showModalDelayed
-                        ? 'flex'
-                        : 'none'
-                }}>
+                style={
+                    {
+                        display: showModalDelayed
+                            ? 'flex'
+                            : 'none'
+                    }
+                }>
 
                 <div
-                    className={`flex flex-col space-y-8 w-full
+                    className={`flex flex-col space-y-8 w-full relative
                     ${showEsCardSkeleton
                             ? `h-max`
-                            : `h-auto`}
-                    relative`}>
+                            : `h-auto`}`}>
 
                     <div
                         className='absolute top-0 right-0 p-8'>
-                        <button className='es-button es-bg-gray-gradient w-8 
-                        h-8 p-1 m-0 rounded-full flex'
+                        <button
+                            className='es-button es-bg-gray-gradient w-8 h-8 p-1 m-0 
+                            rounded-full flex'
                             onClick={closeModal}>
-                            <IonIcon icon={arrowDown} className=' scale-75'></IonIcon>
+                            <IonIcon
+                                icon={arrowDown}
+                                className=' scale-75'></IonIcon>
                         </button>
                     </div>
 
                     <h1
-                        className='text-4xl font-thin px-8 pb-8'
-                        ref={searchContainerRef}>Busqueda</h1>
+                        className={`font-thin px-8 pb-8
+                        transition-all 
+                        ${isSmallDevice
+                                ? `text-2xl`
+                                : `text-4xl`}`}
+                        ref={searchContainerRef}>
+                        Busqueda
+                    </h1>
 
                     {showSearchByItemNumberComponent &&
                         <div

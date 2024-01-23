@@ -24,13 +24,13 @@ export const ItemsPage = ({ data }: any) => {
     return (
         <div className='mt-0 h-[calc(100svh-1rem)]'>
             <IonContent fullscreen={false}>
-                <IonHeader 
-                slot='fixed' 
-                ref={headerRef}>
+                <IonHeader
+                    slot='fixed'
+                    ref={headerRef}>
                     <IonItem
-                    lines='full'>
-                        <div 
-                        className='p-2 pb-2 w-full'>
+                        lines='full'>
+                        <div
+                            className='p-2 pb-2 w-full'>
                             <EsCardHeader
                                 ITEMNMBR={data[0].ITEMNMBR}
                                 ITEMDESC={data[0].ITEMDESC}
@@ -48,13 +48,18 @@ export const ItemsPage = ({ data }: any) => {
                         </div>
                     </IonItem>
                 </IonHeader>
-                <IonList 
-                lines='none'
-                style={{ marginTop: `${intialMarginTopIonList - 8}px` }}>
+                <IonList
+                    lines='none'
+                    style={
+                        {
+                            marginTop: `${intialMarginTopIonList - 8}px`
+                        }
+                    }>
                     {data.map((item: EsCardInterface, index: any) => (
                         <IonItem
                             key={index}>
-                            <div className='p-2 py-2 w-full'>
+                            <div
+                                className='p-2 py-2 w-full'>
                                 <EsCard
                                     key={index}
                                     {...item} />
