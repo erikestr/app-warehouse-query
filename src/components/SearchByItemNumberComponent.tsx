@@ -13,7 +13,7 @@ import { useMediaQuery } from '@uidotdev/usehooks';
 export const SearchByItemNumberComponent = ({ onSearch, onClickSearch, onError }: any) => {
     const [searchResults, setSearchResults]: any = useState([])
     const [isSearching, setIsSearching] = useState(false)
-    const [code, setCode] = useState('10200500-3')
+    const [code, setCode] = useState('')
     const isSmallDevice = useMediaQuery("only screen and (max-width : 320px)")
 
     const userid = sessionStorage.getItem('sys_user') ?? 'sa';
