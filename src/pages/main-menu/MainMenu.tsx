@@ -197,7 +197,7 @@ const MainMenu: React.FC = () => {
     }
 
     const logoutApp = () => {
-        history.push('/login')
+        history.replace('/login')
     }
 
     const handleScrollStart = () => {
@@ -206,34 +206,6 @@ const MainMenu: React.FC = () => {
 
     const handleScroll = (ev: CustomEvent<ScrollDetail>) => {
         // console.log('scroll', JSON.stringify(ev.detail))
-
-        if (searchRefItem.current) {
-            const node = searchRefItem.current
-            const searchRefItemPosition = searchRefItem.current.getBoundingClientRect()
-            // console.log(searchRefItemPosition);
-
-            if (searchRefItemPosition.bottom <= 0) {
-                if (headerRef.current) {
-                    const node = headerRef.current
-                    const headerPosition = node.getBoundingClientRect()
-
-                    sticky.isSticky = true;
-
-                    if (headerPosition.top <= 32) {
-                        node.style.translate = `0px ${ev.detail.scrollTop - 500}px`;
-                    }
-                    if (headerPosition.top >= 32) {
-                        node.style.translate = `0px ${ev.detail.scrollTop - 500}px`;
-                    }
-                }
-            }
-            else {
-                setTimeout(() => {
-                    node.style.translate = `0px -32px`;
-                    sticky.isSticky = false;
-                }, 500);
-            }
-        }
     }
 
     const handleScrollEnd = () => {
@@ -379,7 +351,7 @@ const MainMenu: React.FC = () => {
                     </div>
 
                     <h1
-                        className={`font-thin px-8 pb-8
+                        className={`font-thin px-8
                         transition-all 
                         ${isSmallDevice
                                 ? `text-2xl`
