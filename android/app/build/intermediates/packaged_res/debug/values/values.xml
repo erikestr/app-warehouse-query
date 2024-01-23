@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="air_force_blue">#013789</color>
-    <color name="deep_carmine_pink">#FF3333</color>
-    <color name="eucalyptus_green">#32EA8E</color>
-    <color name="fire_opal_pink">#EE5B5B</color>
-    <color name="gray">#A1A1A1</color>
     <color name="ic_launcher_background">#FFFFFF</color>
-    <color name="medium_aquamarine_green">#5BEEA5</color>
-    <color name="space_cadet_blue">#1B1464</color>
-    <dimen name="border_corner">32dp</dimen>
     <string name="app_name">Jayor Consulta de Inventarios</string>
     <string name="custom_url_scheme">com.jayor.mx.warehouse.query</string>
     <string name="package_name">com.jayor.mx.warehouse.query</string>
     <string name="title_activity_main">Jayor Consulta de Inventarios</string>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
-        <item name="colorPrimary">@color/air_force_blue</item>
-        <item name="colorPrimaryDark">@color/space_cadet_blue</item>
-        <item name="colorAccent">@color/eucalyptus_green</item>
-        <item name="android:statusBarColor">@color/space_cadet_blue</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
-        <item name="android:statusBarColor">@color/space_cadet_blue</item>
     </style>
     <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
         <item name="android:background">@drawable/splash</item>

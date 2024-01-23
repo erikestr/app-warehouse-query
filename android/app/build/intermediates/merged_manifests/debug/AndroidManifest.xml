@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jayor.mx.warehouse.query"
-    android:versionCode="3"
-    android:versionName="1.0.01123" >
+    android:versionCode="1"
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="22"
         android:targetSdkVersion="33" />
+
     <!-- Permissions -->
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Permission will be merged into the manifest of the hosting app. -->
-    <!-- Is required to launch foreground extraction service for targetSdkVersion 28+. -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <permission
         android:name="com.jayor.mx.warehouse.query.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -31,24 +31,17 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.jayor.mx.warehouse.query.AppUpdater"
+            android:name="com.jayor.mx.warehouse.query.MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:label="@string/title_activity_main"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBarLaunch" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.jayor.mx.warehouse.query.MainActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-            android:enableOnBackInvokedCallback="true"
-            android:exported="true"
-            android:label="@string/title_activity_main"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBarLaunch" >
         </activity>
 
         <provider
@@ -60,32 +53,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <!-- The activities will be merged into the manifest of the hosting app. -->
-        <activity
-            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
-            android:enabled="false"
-            android:exported="false"
-            android:launchMode="singleInstance"
-            android:process=":playcore_missing_splits_activity"
-            android:stateNotNeeded="true" />
-        <activity
-            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
-            android:exported="false"
-            android:stateNotNeeded="true"
-            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The services will be merged into the manifest of the hosting app. -->
-        <service
-            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
-            android:enabled="false"
-            android:exported="true" >
-            <meta-data
-                android:name="com.google.android.play.core.assetpacks.versionCode"
-                android:value="11003" />
-        </service>
-        <service
-            android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"
-            android:enabled="false"
-            android:exported="false" />
-
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.jayor.mx.warehouse.query.androidx-startup"

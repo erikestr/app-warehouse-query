@@ -1,0 +1,16 @@
+ion-item {
+    --background: white;
+    --color: black;
+    --padding-start: 0px;
+    --inner-padding-end: 0px;
+}
+
+ion-list {
+    --background: #33ed71;
+    --color: black;
+    --ion-item-background: white;
+}
+
+.header-md {
+    box-shadow: none;
+}

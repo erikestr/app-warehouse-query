@@ -28,6 +28,7 @@ import Shape from '../../assets/images/shape_background.svg'
 import './MainMenu.css'
 import EsCardByBatch from '../../components/EsCardByBatch'
 import { EsCardInterface } from '../../types/EsCardInterface'
+import { ItemsPage } from '../items/ItemsPage'
 
 setupIonicReact()
 
@@ -227,7 +228,7 @@ const MainMenu: React.FC = () => {
         if (searchRefItem.current) {
             const node = searchRefItem.current
             const searchRefItemPosition = searchRefItem.current.getBoundingClientRect()
-            console.log(searchRefItemPosition);
+            // console.log(searchRefItemPosition);
 
             if (searchRefItemPosition.bottom <= 0) {
                 if (headerRef.current) {
@@ -322,18 +323,31 @@ const MainMenu: React.FC = () => {
                 </div>
             </div>
 
-            <div className={`z-10 bg-white es-shadow-inverted 
+            <div
+                className={`z-10 bg-white es-shadow-inverted 
                 w-full absolute text-black rounded-t-[2.5rem]
-                ${showModalResult ? `-translate-y-[100svh] mt-76 opacity-100` : `opacity-0`}
-                ${showModal ? `-translate-y-[calc(100svh/2)] h-[calc(100svh/2)] opacity-100` : `opacity-0`}
-                transition-all duration-500 ease-in-out`}
-                style={{ display: showModalDelayed ? 'flex' : 'none' }}>
+                transition-all duration-500 ease-in-out
+                ${showModalResult
+                        ? `-translate-y-[100svh] mt-76 opacity-100`
+                        : `opacity-0`}
+                ${showModal
+                        ? `-translate-y-[calc(100svh/2)] h-[calc(100svh/2)] opacity-100`
+                        : `opacity-0`}`}
+                style={{
+                    display: showModalDelayed
+                        ? 'flex'
+                        : 'none'
+                }}>
 
-                <div className={`flex flex-col p-8 space-y-8 w-full
-                    ${showEsCardSkeleton ? `h-max` : `h-auto`}
+                <div
+                    className={`flex flex-col space-y-8 w-full
+                    ${showEsCardSkeleton
+                            ? `h-max`
+                            : `h-auto`}
                     relative`}>
 
-                    <div className='absolute top-0 right-0 p-[1rem]'>
+                    <div
+                        className='absolute top-0 right-0 p-8'>
                         <button className='es-button es-bg-gray-gradient w-8 
                         h-8 p-1 m-0 rounded-full flex'
                             onClick={closeModal}>
@@ -341,10 +355,14 @@ const MainMenu: React.FC = () => {
                         </button>
                     </div>
 
-                    <h1 className='text-4xl font-thin' ref={searchContainerRef}>Busqueda</h1>
+                    <h1
+                        className='text-4xl font-thin px-8 pb-8'
+                        ref={searchContainerRef}>Busqueda</h1>
 
                     {showSearchByItemNumberComponent &&
-                        <div ref={searchRefItem}>
+                        <div
+                            className='px-8'
+                            ref={searchRefItem}>
                             <SearchByItemNumberComponent
                                 onSearch={handleSearch}
                                 onClickSearch={handleClickSearch}
@@ -353,7 +371,9 @@ const MainMenu: React.FC = () => {
                     }
 
                     {showSearchByBatchNumberComponent &&
-                        <div ref={searchRefBatch}>
+                        <div
+                            className='px-8'
+                            ref={searchRefBatch}>
                             <SearchByBatchNumberComponent
                                 onSearch={handleSearch}
                                 onClickSearch={handleClickSearch}
@@ -366,25 +386,7 @@ const MainMenu: React.FC = () => {
                     {showEsCardNoResults && <EsCardNotResults />}
 
                     {showListEsCard && showSearchByItemNumberComponent &&
-                        <div ref={headerRef} className={`mt-8 mb-8 transition-all`}>
-                            <EsCardHeader
-                                ITEMNMBR={searchResults[0].ITEMNMBR}
-                                ITEMDESC={searchResults[0].ITEMDESC}
-                                DEF01STR={searchResults[0].DEF01STR}
-                                DEF01DEC={searchResults.reduce((accumulator: any, currentValue: EsCardInterface) => {
-                                    return accumulator + currentValue.QTYONHND;
-                                }, 0)}
-                                DEF02DEC={searchResults.reduce((accumulator: any, currentValue: EsCardInterface) => {
-                                    return accumulator + currentValue.QTYDISPO;
-                                }, 0)} />
-                            <div className={`transition-all mt-8 ${sticky.isSticky ? `opacity-0` : `opacity-1`}`}>
-                                <Separator />
-                            </div>
-                        </div>
-                    }
-
-                    {showListEsCard && showSearchByItemNumberComponent &&
-                        <ListEsCard datos={searchResults} />}
+                        <ItemsPage data={searchResults} />}
 
                     {showListEsCard && showSearchByBatchNumberComponent &&
                         <ListEsCardByBatch datos={searchResults} />}
