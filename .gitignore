@@ -30,4 +30,4 @@ yarn-error.log*
 .eslintcache
 
 # ionic-android
-/android
+android/

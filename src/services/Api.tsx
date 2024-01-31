@@ -51,3 +51,23 @@ export const listExistences = async (userid: string, itemnmbr?: string, batchnmb
     throw new Error(`Error in the fetch request: ${error.message}`);
   }
 };
+
+export const totalsExistences = async (userid: string, itemnmbr: string) => {
+  const url = `${BASE_URL}/api/v1/wharehouse/query/totals?userid=${userid}&itemnmbr=${itemnmbr ?? ''}`;
+
+  try {
+    const response: Response = await fetch(url, {
+      method: 'GET',
+      headers: getHeaders(),
+    });
+
+    if (response.ok) {
+      const data = await response.json();      
+      return data;
+    } else {
+      throw new Error(`Error fetching data: ${response.statusText}`);
+    }
+  } catch (error: any) {
+    throw new Error(`Error in the fetch request: ${error.message}`);
+  }
+};

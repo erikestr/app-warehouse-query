@@ -28,6 +28,7 @@ import EsCardByBatch from '../../components/EsCardByBatch'
 import { EsCardInterface } from '../../types/EsCardInterface'
 import { ItemsPage } from '../items/ItemsPage'
 import { useMediaQuery } from '@uidotdev/usehooks'
+import { BatchesPage } from '../batches/BatchesPage'
 
 setupIonicReact()
 
@@ -382,15 +383,23 @@ const MainMenu: React.FC = () => {
                         </div>
                     }
 
-                    {showEsCardSkeleton && <EsCardSkeleton />}
+                    {showEsCardSkeleton &&
+                        <div className='mx-2'>
+                            <EsCardSkeleton />
+                        </div>
+                    }
 
-                    {showEsCardNoResults && <EsCardNotResults />}
+                    {showEsCardNoResults &&
+                        <div className='mx-2'>
+                            <EsCardNotResults />
+                        </div>
+                    }
 
                     {showListEsCard && showSearchByItemNumberComponent &&
                         <ItemsPage data={searchResults} />}
 
                     {showListEsCard && showSearchByBatchNumberComponent &&
-                        <ListEsCardByBatch datos={searchResults} />}
+                        <BatchesPage data={searchResults} />}
 
                 </div>
 

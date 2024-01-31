@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.jayor.mx.warehouse.query"
-4    android:versionCode="4"
-5    android:versionName="1.0.2401232" >
+4    android:versionCode="5"
+5    android:versionName="1.0.2401301" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="22"
@@ -43,146 +43,129 @@
 26-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:10:9-54
 27        android:supportsRtl="true"
 27-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:11:9-35
-28        android:theme="@style/AppTheme"
-28-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:12:9-40
-29        android:usesCleartextTraffic="true" >
-29-->[:capacitor-cordova-android-plugins] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:18-53
-30        <activity
-30-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:13:9-22:20
-31            android:name="com.jayor.mx.warehouse.query.AppUpdater"
-31-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:14:13-39
-32            android:exported="true"
-32-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:15:13-36
-33            android:screenOrientation="portrait" >
-33-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:16:13-49
-34            <intent-filter>
-34-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:17:13-21:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:18:17-69
-35-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:18:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:20:17-77
-37-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:20:27-74
-38            </intent-filter>
-39        </activity>
-40        <activity
-40-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:23:9-31:20
-41            android:name="com.jayor.mx.warehouse.query.MainActivity"
-41-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:24:13-41
-42            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-42-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:25:13-129
-43            android:exported="true"
-43-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:26:13-36
-44            android:label="@string/title_activity_main"
-44-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:27:13-56
-45            android:launchMode="singleTask"
-45-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:28:13-44
-46            android:screenOrientation="portrait"
-46-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:29:13-49
-47            android:theme="@style/AppTheme.NoActionBarLaunch" >
-47-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:30:13-62
-48        </activity>
-49
-50        <provider
-51            android:name="androidx.core.content.FileProvider"
-51-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:34:13-62
-52            android:authorities="com.jayor.mx.warehouse.query.fileprovider"
-52-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:35:13-64
-53            android:exported="false"
-53-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:36:13-37
-54            android:grantUriPermissions="true" >
-54-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:37:13-47
-55            <meta-data
-55-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:38:13-40:54
-56                android:name="android.support.FILE_PROVIDER_PATHS"
-56-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:39:17-67
-57                android:resource="@xml/file_paths" />
-57-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:40:17-51
-58        </provider>
-59
-60        <meta-data
-60-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\9c93503ec2f6c0acb578d7618e52d827\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
-61            android:name="com.google.android.gms.version"
-61-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\9c93503ec2f6c0acb578d7618e52d827\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
-62            android:value="@integer/google_play_services_version" />
-62-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\9c93503ec2f6c0acb578d7618e52d827\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
-63
-64        <provider
-64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-65            android:name="androidx.startup.InitializationProvider"
-65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-66            android:authorities="com.jayor.mx.warehouse.query.androidx-startup"
-66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-67            android:exported="false" >
-67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-68            <meta-data
-68-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-69                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-69-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-70                android:value="androidx.startup" />
-70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-71            <meta-data
-71-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-72                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-72-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
-73                android:value="androidx.startup" />
-73-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
-74            <meta-data
-74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-75                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-76                android:value="androidx.startup" />
-76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-77        </provider>
-78
-79        <receiver
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-80            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-81            android:directBootAware="false"
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-82            android:enabled="true"
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-83            android:exported="true"
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-84            android:permission="android.permission.DUMP" >
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-85            <intent-filter>
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-86                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-87            </intent-filter>
-88            <intent-filter>
-88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-89                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-90            </intent-filter>
-91            <intent-filter>
-91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-92                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-93            </intent-filter>
-94            <intent-filter>
-94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-95                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-96            </intent-filter>
-97        </receiver> <!-- The activities will be merged into the manifest of the hosting app. -->
-98        <activity
-98-->[com.google.android.play:core-common:2.0.3] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\ece701b326b3684a7d10970142d0dc5d\transformed\core-common-2.0.3\AndroidManifest.xml:14:9-18:65
-99            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
-99-->[com.google.android.play:core-common:2.0.3] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\ece701b326b3684a7d10970142d0dc5d\transformed\core-common-2.0.3\AndroidManifest.xml:15:13-93
-100            android:exported="false"
-100-->[com.google.android.play:core-common:2.0.3] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\ece701b326b3684a7d10970142d0dc5d\transformed\core-common-2.0.3\AndroidManifest.xml:16:13-37
-101            android:stateNotNeeded="true"
-101-->[com.google.android.play:core-common:2.0.3] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\ece701b326b3684a7d10970142d0dc5d\transformed\core-common-2.0.3\AndroidManifest.xml:17:13-42
-102            android:theme="@style/Theme.PlayCore.Transparent" />
-102-->[com.google.android.play:core-common:2.0.3] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\ece701b326b3684a7d10970142d0dc5d\transformed\core-common-2.0.3\AndroidManifest.xml:18:13-62
-103    </application>
-104
-105</manifest>
+28        android:testOnly="true"
+29        android:theme="@style/AppTheme"
+29-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:12:9-40
+30        android:usesCleartextTraffic="true" >
+30-->[:capacitor-cordova-android-plugins] C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\capacitor-cordova-android-plugins\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:18-53
+31        <activity
+31-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:13:9-22:20
+32            android:name="com.jayor.mx.warehouse.query.AppUpdater"
+32-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:14:13-39
+33            android:exported="true"
+33-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:15:13-36
+34            android:screenOrientation="portrait" >
+34-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:16:13-49
+35            <intent-filter>
+35-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:17:13-21:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:18:17-69
+36-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:18:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:20:17-77
+38-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:20:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:23:9-31:20
+42            android:name="com.jayor.mx.warehouse.query.MainActivity"
+42-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:24:13-41
+43            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+43-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:25:13-129
+44            android:exported="true"
+44-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:26:13-36
+45            android:label="@string/title_activity_main"
+45-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:27:13-56
+46            android:launchMode="singleTask"
+46-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:28:13-44
+47            android:screenOrientation="portrait"
+47-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:29:13-49
+48            android:theme="@style/AppTheme.NoActionBarLaunch" >
+48-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:30:13-62
+49        </activity>
+50
+51        <provider
+52            android:name="androidx.core.content.FileProvider"
+52-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:34:13-62
+53            android:authorities="com.jayor.mx.warehouse.query.fileprovider"
+53-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:35:13-64
+54            android:exported="false"
+54-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:36:13-37
+55            android:grantUriPermissions="true" >
+55-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:37:13-47
+56            <meta-data
+56-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:38:13-40:54
+57                android:name="android.support.FILE_PROVIDER_PATHS"
+57-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:39:17-67
+58                android:resource="@xml/file_paths" />
+58-->C:\Users\MXJAYORDS204\Desktop\PROJECTS\app-warehouse-query\frontend\app-warehouse-query\android\app\src\main\AndroidManifest.xml:40:17-51
+59        </provider>
+60        <provider
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+61            android:name="androidx.startup.InitializationProvider"
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+62            android:authorities="com.jayor.mx.warehouse.query.androidx-startup"
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+63            android:exported="false" >
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+64            <meta-data
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+66                android:value="androidx.startup" />
+66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+68-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+69                android:value="androidx.startup" />
+69-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+70            <meta-data
+70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+71-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+72                android:value="androidx.startup" />
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+73        </provider>
+74
+75        <receiver
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+76            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+77            android:directBootAware="false"
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+78            android:enabled="true"
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+79            android:exported="true"
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+80            android:permission="android.permission.DUMP" >
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+82                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+85                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+88                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+91                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\MXJAYORDS204\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+92            </intent-filter>
+93        </receiver>
+94    </application>
+95
+96</manifest>

@@ -6,20 +6,44 @@ import { EsCard } from '../../components/EsCard';
 
 /** Custom Css */
 import './ItemsPage.css'
-console.clear();
+import { v1WharehouseInterface } from '../../types/v1WharehouseInterface';
+import { totalsExistences } from '../../services/Api';
+import { EsCardSkeleton } from '../../components/EsCardSkeleton';
 
 export const ItemsPage = ({ data }: any) => {
 
     const [intialMarginTopIonList, setIntialMarginTopIonList] = useState(0)
     const headerRef: any = useRef(null)
+    
+    const [onHeaderTotals, setOnHeaderTotals]: any = useState()
+    const [onHeaderTotalsStatus, setOnHeaderTotalsStatus]: any = useState(false)
+    
+    const userid = sessionStorage.getItem('sys_user') ?? 'sa';
 
     useEffect(() => {
+        const fetchData = async () => {
+            const result = await totalsExistences(userid, data[0].ITEMNMBR)
+            if (result) {
+                setOnHeaderTotals(result)
+                setOnHeaderTotalsStatus(true)
+
+                setIntialMarginTopIonList(getHeaderHeight);
+            }
+        }
+
+        fetchData().catch(console.error)
+
+        setIntialMarginTopIonList(getHeaderHeight);
+    }, []);
+
+    const getHeaderHeight = () => {
         if (headerRef && headerRef.current) {
             const node = headerRef.current;
             const bounding = node.getBoundingClientRect();
-            setIntialMarginTopIonList(bounding.height);
+            return bounding.height;
         }
-    }, []);
+        return 0;
+    }
 
     return (
         <div className='mt-0 h-[calc(100svh-1rem)]'>
@@ -29,22 +53,18 @@ export const ItemsPage = ({ data }: any) => {
                     ref={headerRef}>
                     <IonItem
                         lines='full'>
+
                         <div
                             className='p-2 pb-2 w-full'>
-                            <EsCardHeader
-                                ITEMNMBR={data[0].ITEMNMBR}
-                                ITEMDESC={data[0].ITEMDESC}
-                                DEF01STR={data[0].DEF01STR}
-                                DEF01DEC={data.reduce(
-                                    (accumulator: any, currentValue: EsCardInterface) => {
-                                        return accumulator + currentValue.QTYONHND
-                                    }, 0)
-                                }
-                                DEF02DEC={data.reduce(
-                                    (accumulator: any, currentValue: EsCardInterface) => {
-                                        return accumulator + currentValue.QTYDISPO;
-                                    }, 0)
-                                } />
+                            {!onHeaderTotalsStatus && <EsCardSkeleton />}
+                            {onHeaderTotalsStatus && <EsCardHeader
+                                ITEMNMBR={onHeaderTotals.ITEMNMBR ?? '-'}
+                                ITEMDESC={onHeaderTotals.ITEMDESC ?? '-'}
+                                DEF01STR={onHeaderTotals.DEF01STR ?? '-'}
+                                DEF01DEC={onHeaderTotals.QTYONHND ?? '-'}
+                                DEF02DEC={onHeaderTotals.QTYDISPO ?? '-'} />
+                            }
+
                         </div>
                     </IonItem>
                 </IonHeader>
