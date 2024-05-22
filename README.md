@@ -1,46 +1,89 @@
-# Warehouse Location Query App
-## Overview
-This project is a React-based application built on the Ionic framework, designed to streamline inventory management by enabling users to efficiently query and locate items in racks using either item numbers or batch numbers. The application is cross-platform, supporting both iOS and Android, and offers a user-friendly interface for enhanced accessibility.
+# For Android Deploy
 
-## Features
-1) Query by Item Number or Batch Number:
+## Capacitor
 
-- Users can easily search for the location of items in racks by entering either the item number or batch number, providing flexibility in tracking inventory.
-2) Responsive Design:
+Config file in /capacitor.config.ts.
 
-- The application is built using Ionic, ensuring a responsive design that seamlessly adapts to various screen sizes and resolutions, delivering a consistent user experience on both iOS and Android devices.
-3) Real-time Data Updates:
+### Generate native project
 
-- Leveraging the power of React, the app provides real-time data retrieval, keeping users informed with the latest information on item locations. This feature enhances accuracy and reduces the risk of errors associated with outdated data.
-## Getting Started
-To run the application locally, follow these steps:
-
-1) Clone the repository:
+Generate the native project, if it does not already exist.
 
 ```bash
-git clone https://github.com/your-username/warehouse-location-app.git
+npx cap add android
 ```
 
-2) Install dependencies:
+## Open Capacitor project on Android Studio
 
 ```bash
-cd warehouse-location-app
-npm install
+npx cap open android
 ```
-3) Run the application:
+
+### Running
+
+Develop the Ionic app and sync it to the native project.
 
 ```bash
-npm start
+ionic capacitor copy android
 ```
-4) Access the app in your browser at http://localhost:3000.
 
-## Deployment
-For deployment to iOS and Android devices using Ionic, refer to the official Ionic documentation on deployment. Follow the platform-specific instructions to package and distribute the app.
+### Live Reload (Only web, no device mount)
 
-## License
-This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as needed.
+To start a live-reload server run the following command.
 
+```bash
+ionic capacitor run android -l --external
+```
 
+## Commit changes to native project and Open project at Android Studio
 
+```bash
+ionic build
+ionic capacitor run android -l --external
+```
 
+## Commit changes to native project and run on Connected Device
 
+```bash
+ionic build --prod
+npx @capacitor/assets generate --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111'
+ionic capacitor sync android
+npx cap run android --prod
+npx cap open android
+```
+
+## Run on Android studio and generate Resource Images Device
+
+```bash
+ionic build --prod
+npx cap add android
+npx @capacitor/assets generate --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111'
+ionic capacitor sync android --prod
+ionic capacitor open android
+```
+
+## Run on ios and generate Resource Images Device
+
+```bash
+ionic build --prod
+ionic capacitor add ios
+npx @capacitor/assets generate --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111'
+ionic capacitor sync ios --prod
+ionic capacitor open ios
+```
+
+## Keys
+keystore: `/keystore/upload-labjayor-keystore.jks`
+keystore pass: `J@y0r.1234?`
+key alias: `labjayor`
+key alias pass: `J@y0r.1234?`
+
+> More info: [Android Development - Ionic Docs](https://ionicframework.com/docs/developing/android).
+> More info: [Capacitor Assets](https://github.com/ionic-team/capacitor-assets).
+
+App Transport Security Settings
+    * Allow Arbitrary Loads > YES
+
+### Assets
+```bash
+    npx capacitor-assets generate [--android|--ios]
+```

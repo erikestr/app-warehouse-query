@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="@types/testing-library__cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
