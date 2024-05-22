@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 const EsCardByBatch = ({ ITEMNMBR, ITEMDESC, DEF01STR, LOTNUMBR, BIN, EAN13Adaia,
     MFGDATE, EXPNDATE, QTYONHND, ATYALLOC, QTYDISPO }: EsCardInterface) => {
     return (
-        <div className='es-card flex flex-col space-y-0 p-8 text-center'>
+        <div className='es-card-item flex flex-col space-y-0 p-4 text-center'>
 
             <div className='flex flex-row'>
                 <div className='flex flex-col w-full'>

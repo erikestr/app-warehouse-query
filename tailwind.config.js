@@ -21,8 +21,7 @@ export default {
       },
       backgroundImage :{
         'back': '#FFFFFF'
-      },
-
+      }
     },
   },
   plugins: [],

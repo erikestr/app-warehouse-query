@@ -93,7 +93,15 @@
     }
 
     .es-card {
-        @apply w-full p-4 flex flex-col space-y-8 bg-white rounded-3xl text-black shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px];
+        @apply w-full p-4 flex flex-col space-y-8 bg-white 
+        rounded-3xl text-black 
+        shadow-[rgba(13,_38,_76,_0.19)_0px_2px_10px];
+    }
+
+    .es-card-item {
+        @apply w-full p-4 flex flex-col space-y-8 bg-white 
+        rounded-3xl text-black border-afblue border-4
+        shadow-[rgba(13,_38,_76,_0.5)_0px_2px_8px];
     }
 
     .es-shadow {
@@ -107,4 +115,40 @@
     .es-shadow-inverted {
         @apply shadow-[0.0px_-4.0px_14.0px_rgba(0,0,0,0.38)];
     }
+}
+
+.es-positive {
+    background-color: #32EA8E !important;
+}
+.es-negative {
+    background-color: #FF3333 !important;
+}
+.es-alert {
+    --ion-background-color: white;
+    --ion-text-color: black;
+}
+.alert-wrapper {
+    text-align: center !important;
+    border-radius: 2rem !important;
+    border: 2px solid #013789;
+}
+.alert-button {
+    color: white !important;
+    border-radius: 1.5rem !important;
+    padding-inline: 1rem !important;
+    margin-inline: 0 !important;
+    width: 100% !important;
+}
+.alert-button-group {
+    justify-content: center !important;
+}
+.alert-button-inner {
+    justify-content: center !important;
+}
+.alert-head,.alert-message,.alert-button-group {
+    padding-inline: 1.5rem !important;
+    text-align: center !important;
+}
+.alert-button-group {
+    padding-bottom: 1.5rem !important;
 }

@@ -25,10 +25,10 @@ export const authLogin = async (username: string, password: string, remeber: boo
       sessionStorage.setItem('_sys_user', data['sys_user']);
       return data;
     } else {
-      throw new Error('Login failed');
+      throw new Error('Login failed', {cause: response.status});
     }
   } catch (error: any) {
-    throw new Error(`Error in login request: ${error.message}`);
+    throw new Error(`Error in login request: ${error.message}`, {cause: error.cause});
   }
 };
 
@@ -43,6 +43,26 @@ export const listExistences = async (userid: string, itemnmbr?: string, batchnmb
 
     if (response.ok) {
       const data = await response.json();
+      return data;
+    } else {
+      throw new Error(`Error fetching data: ${response.statusText}`);
+    }
+  } catch (error: any) {
+    throw new Error(`Error in the fetch request: ${error.message}`);
+  }
+};
+
+export const totalsExistences = async (userid: string, itemnmbr: string) => {
+  const url = `${BASE_URL}/api/v1/wharehouse/query/totals?userid=${userid}&itemnmbr=${itemnmbr ?? ''}`;
+
+  try {
+    const response: Response = await fetch(url, {
+      method: 'GET',
+      headers: getHeaders(),
+    });
+
+    if (response.ok) {
+      const data = await response.json();      
       return data;
     } else {
       throw new Error(`Error fetching data: ${response.statusText}`);

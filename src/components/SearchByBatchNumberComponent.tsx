@@ -8,12 +8,13 @@ import { searchOutline } from 'ionicons/icons';
 /** Imports */
 import { v1WharehouseInterface } from '../types/v1WharehouseInterface';
 import { listExistences } from '../services/Api';
+import { useMediaQuery } from '@uidotdev/usehooks';
 
 export const SearchByBatchNumberComponent = ({ onSearch, onClickSearch, onError }: any) => {
     const [searchResults, setSearchResults]: any[] = useState([]);
-
     const [isSearching, setIsSearching] = useState(false)
     const [code, setCode] = useState('')
+    const isSmallDevice = useMediaQuery("only screen and (max-width : 320px)")
 
     const userid = sessionStorage.getItem('sys_user') ?? 'sa';
 
@@ -40,16 +41,28 @@ export const SearchByBatchNumberComponent = ({ onSearch, onClickSearch, onError 
     }
 
     return (
-        <div className="es-card flex-col space-x-2">
-            <div className='flex flex-row space-x-2'>
-
-                <span className='es-input-span w-full'>
-                    <input className='es-input w-full' type='text'
-                        placeholder='Lote'
-                        value={code}
+        <div
+            className="es-card flex-col space-x-2">
+            <div
+                className='flex flex-row space-x-2'>
+                <span
+                    className={`es-input-span w-full 
+                    transition-all
+                    ${isSmallDevice
+                            ? `h-[2.75rem]`
+                            : `h-12`}`}>
+                    <input
+                        className={`es-input w-full
+                        transition-all
+                        ${isSmallDevice
+                                ? `text-sm h-[2.25rem] px-1`
+                                : `text-xl h-10`}`}
                         onChange={(e) => setCode(e.target.value)}
                         onKeyUp={handleKeyUp}
+                        placeholder='Lote'
                         autoComplete='off'
+                        value={code}
+                        type='text'
                         spellCheck='false' />
                     <span></span>
                 </span>

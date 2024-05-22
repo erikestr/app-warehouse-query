@@ -18,8 +18,6 @@ import { EsCardNotResults } from '../../components/EsCardNotResults'
 import { EsCard } from '../../components/EsCard'
 import { SearchByItemNumberComponent } from '../../components/SearchByItemNumberComponent'
 import { SearchByBatchNumberComponent } from '../../components/SearchByBatchNumberComponent'
-import { Separator } from '../../components/Separator'
-import EsCardHeader from '../../components/EsCardHeader'
 
 /** Resources */
 import Shape from '../../assets/images/shape_background.svg'
@@ -28,6 +26,9 @@ import Shape from '../../assets/images/shape_background.svg'
 import './MainMenu.css'
 import EsCardByBatch from '../../components/EsCardByBatch'
 import { EsCardInterface } from '../../types/EsCardInterface'
+import { ItemsPage } from '../items/ItemsPage'
+import { useMediaQuery } from '@uidotdev/usehooks'
+import { BatchesPage } from '../batches/BatchesPage'
 
 setupIonicReact()
 
@@ -38,21 +39,7 @@ const MainMenu: React.FC = () => {
     const headerRef: any = useRef(null)
     const searchRefItem: any = useRef(null)
     const searchRefBatch: any = useRef(null)
-
-    let header: DOMRect
-
-    const handleScrollf = (elTopOffset: any, elHeight: any) => {
-        if (window.pageYOffset > (elTopOffset + elHeight)) {
-            setSticky({ isSticky: true, offset: elHeight })
-        } else {
-            setSticky({ isSticky: false, offset: 0 })
-        }
-    }
-
-    const handleScrollEvent = () => {
-        console.log("handleScrollEvent")
-        handleScrollf(header.top, header.height)
-    }
+    const isSmallDevice = useMediaQuery("only screen and (max-width : 320px)")
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -211,11 +198,8 @@ const MainMenu: React.FC = () => {
     }
 
     const logoutApp = () => {
-        history.push('/login')
+        history.replace('/login')
     }
-
-    const positionTop: number = 0;
-    const lastPosition: number = 0;
 
     const handleScrollStart = () => {
         // console.log('scroll start')
@@ -223,34 +207,6 @@ const MainMenu: React.FC = () => {
 
     const handleScroll = (ev: CustomEvent<ScrollDetail>) => {
         // console.log('scroll', JSON.stringify(ev.detail))
-
-        if (searchRefItem.current) {
-            const node = searchRefItem.current
-            const searchRefItemPosition = searchRefItem.current.getBoundingClientRect()
-            console.log(searchRefItemPosition);
-
-            if (searchRefItemPosition.bottom <= 0) {
-                if (headerRef.current) {
-                    const node = headerRef.current
-                    const headerPosition = node.getBoundingClientRect()
-
-                    sticky.isSticky = true;
-
-                    if (headerPosition.top <= 32) {
-                        node.style.translate = `0px ${ev.detail.scrollTop - 500}px`;
-                    }
-                    if (headerPosition.top >= 32) {
-                        node.style.translate = `0px ${ev.detail.scrollTop - 500}px`;
-                    }
-                }
-            }
-            else {
-                setTimeout(() => {
-                    node.style.translate = `0px -32px`;
-                    sticky.isSticky = false;
-                }, 500);
-            }
-        }
     }
 
     const handleScrollEnd = () => {
@@ -264,57 +220,94 @@ const MainMenu: React.FC = () => {
             onIonScroll={handleScroll}
             onIonScrollEnd={handleScrollEnd}>
 
-            <div slot='fixed' className='fixed bottom-0 right-0 p-4'>
+            <div
+                slot='fixed'
+                className='fixed bottom-0 right-0 p-4'>
                 {showModalResult &&
-                    <button className={`es-button w-8 h-8 p-1 m-0 rounded-full flex
-                    ${showModalResult ? `opacity-100` : `opacity-0`}
-                    transition delay-500 duration-500 ease-in-out`}
+                    <button
+                        className={`es-button w-8 h-8 p-1 m-0 rounded-full flex
+                        transition delay-500 duration-500 ease-in-out
+                        ${showModalResult
+                                ? `opacity-100`
+                                : `opacity-0`}`}
                         onClick={scrollToTop}>
-                        <IonIcon icon={arrowUp} className=' scale-75'></IonIcon>
+                        <IonIcon
+                            icon={arrowUp}
+                            className=' scale-75'></IonIcon>
                     </button>
                 }
             </div>
 
-            <div className='absolute z-0' ref={clockContainerRef}>
+            <div
+                className='absolute z-0'
+                ref={clockContainerRef}>
                 <IonImg
                     src={Shape}
-                    alt='Laboratorios Jayor México'>
-                </IonImg>
+                    alt='Laboratorios Jayor México'></IonImg>
             </div>
 
-            <div className='absolute top-0 right-0 m-4 z-40'>
-                <button className='es-button-red w-8 h-8 p-1 m-0 rounded-full 
-                flex absolute right-[10%]'
+            <div
+                className='absolute top-0 right-0 m-4 z-40'>
+                <button
+                    className='es-button-red w-8 h-8 p-1 m-0 rounded-full 
+                    flex absolute right-[10%]'
                     onClick={logoutApp}>
-                    <IonIcon icon={exit} className=' scale-75'></IonIcon>
+                    <IonIcon
+                        icon={exit}
+                        className=' scale-75'></IonIcon>
                 </button>
             </div>
 
-            <div className='w-full h-svh flex flex-col p-8 space-y-8 z-30'>
-                <div className='w-full z-20'>
-                    <input className='es-input hover:es-no-hover w-full 
-                        es-shadow'
-                        type='tebxt' placeholder='Ingrese su usuario'
-                        value={currentTime} readOnly />
+            <div
+                className='w-full h-svh flex flex-col p-8 space-y-8 z-30'>
+                <div
+                    className='w-full z-20'>
+                    <input
+                        className={`es-input hover:es-no-hover w-full es-shadow
+                        ${isSmallDevice
+                                ? `text-sm`
+                                : `text-lg`}`}
+                        placeholder='Ingrese su usuario'
+                        value={currentTime}
+                        type='text'
+                        readOnly />
                 </div>
 
-                <div className={`es-card z-10
-                ${isCentered ? `translate-y-[calc(50svh/2)]` : `translate-y-0`}
-                transition duration-500 ease-in-out`}>
+                <div
+                    className={`es-card z-10 transition duration-500 ease-in-out
+                    ${isCentered
+                            ? `translate-y-[calc(50svh/2)]`
+                            : `translate-y-0`}`}>
 
-                    <div className='w-full'>
-                        <button className={`${showSearchByItemNumberComponent ? `transition-all ease-out duration-70 es-button-green text-scblue` : `es-button`}`}
-                            onClick={searchByItemNumber}
+                    <div
+                        className='w-full'>
+                        <button
+                            className={`transition-all ease-out duration-70
+                            ${showSearchByItemNumberComponent
+                                    ? `es-button-green text-scblue`
+                                    : `es-button`}
+                            ${isSmallDevice
+                                    ? `text-sm font-semibold`
+                                    : `text-2xl`}`}
                             disabled={searchByItemNumberIsDisabled}
+                            onClick={searchByItemNumber}
                             id='open-modal-a'>
                             Por Artículo
                         </button>
                     </div>
 
-                    <div className='w-full'>
-                        <button className={`${showSearchByBatchNumberComponent ? ` transition-all ease-out duration-70 es-button-green text-scblue` : `es-button`}`}
-                            onClick={searchByBatchNumber}
+                    <div
+                        className='w-full'>
+                        <button
+                            className={`transition-all ease-out duration-70
+                            ${showSearchByBatchNumberComponent
+                                    ? `es-button-green text-scblue`
+                                    : `es-button`}
+                            ${isSmallDevice
+                                    ? `text-sm font-semibold`
+                                    : `text-2xl`}`}
                             disabled={searchByBatchNumberIsDisabled}
+                            onClick={searchByBatchNumber}
                             id='open-modal-b'>
                             Por Lote
                         </button>
@@ -322,29 +315,56 @@ const MainMenu: React.FC = () => {
                 </div>
             </div>
 
-            <div className={`z-10 bg-white es-shadow-inverted 
+            <div
+                className={`z-10 bg-white es-shadow-inverted 
                 w-full absolute text-black rounded-t-[2.5rem]
-                ${showModalResult ? `-translate-y-[100svh] mt-76 opacity-100` : `opacity-0`}
-                ${showModal ? `-translate-y-[calc(100svh/2)] h-[calc(100svh/2)] opacity-100` : `opacity-0`}
-                transition-all duration-500 ease-in-out`}
-                style={{ display: showModalDelayed ? 'flex' : 'none' }}>
+                transition-all duration-500 ease-in-out
+                ${showModalResult
+                        ? `-translate-y-[100svh] mt-76 opacity-100`
+                        : `opacity-0`}
+                ${showModal
+                        ? `-translate-y-[calc(100svh/2)] h-[calc(100svh/2)] opacity-100`
+                        : `opacity-0`}`}
+                style={
+                    {
+                        display: showModalDelayed
+                            ? 'flex'
+                            : 'none'
+                    }
+                }>
 
-                <div className={`flex flex-col p-8 space-y-8 w-full
-                    ${showEsCardSkeleton ? `h-max` : `h-auto`}
-                    relative`}>
+                <div
+                    className={`flex flex-col space-y-8 w-full relative
+                    ${showEsCardSkeleton
+                            ? `h-max`
+                            : `h-auto`}`}>
 
-                    <div className='absolute top-0 right-0 p-[1rem]'>
-                        <button className='es-button es-bg-gray-gradient w-8 
-                        h-8 p-1 m-0 rounded-full flex'
+                    <div
+                        className='absolute top-0 right-0 p-8'>
+                        <button
+                            className='es-button es-bg-gray-gradient w-8 h-8 p-1 m-0 
+                            rounded-full flex'
                             onClick={closeModal}>
-                            <IonIcon icon={arrowDown} className=' scale-75'></IonIcon>
+                            <IonIcon
+                                icon={arrowDown}
+                                className=' scale-75'></IonIcon>
                         </button>
                     </div>
 
-                    <h1 className='text-4xl font-thin' ref={searchContainerRef}>Busqueda</h1>
+                    <h1
+                        className={`font-thin px-8
+                        transition-all 
+                        ${isSmallDevice
+                                ? `text-2xl`
+                                : `text-4xl`}`}
+                        ref={searchContainerRef}>
+                        Busqueda
+                    </h1>
 
                     {showSearchByItemNumberComponent &&
-                        <div ref={searchRefItem}>
+                        <div
+                            className='px-8'
+                            ref={searchRefItem}>
                             <SearchByItemNumberComponent
                                 onSearch={handleSearch}
                                 onClickSearch={handleClickSearch}
@@ -353,7 +373,9 @@ const MainMenu: React.FC = () => {
                     }
 
                     {showSearchByBatchNumberComponent &&
-                        <div ref={searchRefBatch}>
+                        <div
+                            className='px-8'
+                            ref={searchRefBatch}>
                             <SearchByBatchNumberComponent
                                 onSearch={handleSearch}
                                 onClickSearch={handleClickSearch}
@@ -361,33 +383,23 @@ const MainMenu: React.FC = () => {
                         </div>
                     }
 
-                    {showEsCardSkeleton && <EsCardSkeleton />}
+                    {showEsCardSkeleton &&
+                        <div className='mx-2'>
+                            <EsCardSkeleton />
+                        </div>
+                    }
 
-                    {showEsCardNoResults && <EsCardNotResults />}
-
-                    {showListEsCard && showSearchByItemNumberComponent &&
-                        <div ref={headerRef} className={`mt-8 mb-8 transition-all`}>
-                            <EsCardHeader
-                                ITEMNMBR={searchResults[0].ITEMNMBR}
-                                ITEMDESC={searchResults[0].ITEMDESC}
-                                DEF01STR={searchResults[0].DEF01STR}
-                                DEF01DEC={searchResults.reduce((accumulator: any, currentValue: EsCardInterface) => {
-                                    return accumulator + currentValue.QTYONHND;
-                                }, 0)}
-                                DEF02DEC={searchResults.reduce((accumulator: any, currentValue: EsCardInterface) => {
-                                    return accumulator + currentValue.QTYDISPO;
-                                }, 0)} />
-                            <div className={`transition-all mt-8 ${sticky.isSticky ? `opacity-0` : `opacity-1`}`}>
-                                <Separator />
-                            </div>
+                    {showEsCardNoResults &&
+                        <div className='mx-2'>
+                            <EsCardNotResults />
                         </div>
                     }
 
                     {showListEsCard && showSearchByItemNumberComponent &&
-                        <ListEsCard datos={searchResults} />}
+                        <ItemsPage data={searchResults} />}
 
                     {showListEsCard && showSearchByBatchNumberComponent &&
-                        <ListEsCardByBatch datos={searchResults} />}
+                        <BatchesPage data={searchResults} />}
 
                 </div>
 
